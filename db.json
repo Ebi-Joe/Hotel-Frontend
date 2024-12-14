@@ -1,0 +1,723 @@
+{
+  "rooms": [
+    {
+      "id": "1",
+      "price": 200,
+      "name": "Standard suite",
+      "description": " In comparison to most hotel rooms, standard suite rooms tend to be larger than their more basic counterparts. Whereas standard hotel rooms are typically separated into two main areas (bedroom & bathroom), standard suites usually include a separate living space.",
+      "features": "Indulge in the luxurious comforts of our Standard Suite, where elegance meets relaxation. Spacious living areas, adorned with refined furnishings, create the perfect ambiance for unwinding. Enjoy breathtaking views from the expansive windows, while plush carpets and soft linens envelop you in warmth. Modern amenities, including flat-screen TVs and high-speed internet, ensure seamless connectivity. Savor the convenience of a fully stocked mini-bar and 24-hour room service. Unwind in the marble-clad bathroom, complete with premium toiletries and rejuvenating rainfall showers. Every detail, from the ergonomic workspace to the plush king-size bed, is designed to provide a restful retreat. Experience the epitome of comfort and sophistication in our Standard Suite, where every moment is a testament to exceptional hospitality.",
+      "info": "Experience unparalleled luxury and comfort in our Standard Suite, designed for relaxation and style.",
+      "availability": "Available",
+      "rooms": 8,
+      "bedType": "Double Bed",
+      "rating": "5",
+      "review": "200",
+      "roomSize": "35 - 45 sq m",
+      "bedSize": "Queen",
+      "occupancy": "Up to 2 adults, 1 child",
+      "location": "2nd-5th floor",
+      "view": "City or partial ocean view",
+      "roomService": "Yes",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Yes",
+      "images": [
+        {
+          "img": "/img/standardroom_1.jpg"
+        },
+        {
+          "img": "/img/standardroom_2.jpg"
+        },
+        {
+          "img": "/img/standardroom_3.jpg"
+        },
+        {
+          "img": "/img/standardroom_4.jpg"
+        },
+        {
+          "img": "/img/standardroom_5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "price": 200,
+      "name": "Standard suite",
+      "img": "/img/Hotel2.avif",
+      "description": " In comparison to most hotel rooms, standard suite rooms tend to be larger than their more basic counterparts. Whereas standard hotel rooms are typically separated into two main areas (bedroom & bathroom), standard suites usually include a separate living space.",
+      "features": "Indulge in the luxurious comforts of our Standard Suite, where elegance meets relaxation. Spacious living areas, adorned with refined furnishings, create the perfect ambiance for unwinding. Enjoy breathtaking views from the expansive windows, while plush carpets and soft linens envelop you in warmth. Modern amenities, including flat-screen TVs and high-speed internet, ensure seamless connectivity. Savor the convenience of a fully stocked mini-bar and 24-hour room service. Unwind in the marble-clad bathroom, complete with premium toiletries and rejuvenating rainfall showers. Every detail, from the ergonomic workspace to the plush king-size bed, is designed to provide a restful retreat. Experience the epitome of comfort and sophistication in our Standard Suite, where every moment is a testament to exceptional hospitality.",
+      "info": "Experience unparalleled luxury and comfort in our Standard Suite, designed for relaxation and style",
+      "availability": "Soldout",
+      "rooms": 8,
+      "bedType": "Double Bed",
+      "rating": "4.3",
+      "review": "200",
+      "roomSize": "35 - 45 sq m",
+      "bedSize": "Queen",
+      "occupancy": "Up to 2 adults, 1 child",
+      "location": "2nd-5th floor",
+      "view": "City or partial ocean view",
+      "roomService": "Yes",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Yes",
+      "images": [
+        {
+          "img": "/img/standardroom_1.jpg"
+        },
+        {
+          "img": "/img/standardroom_2.jpg"
+        },
+        {
+          "img": "/img/standardroom_3.jpg"
+        },
+        {
+          "img": "/img/standardroom_4.jpg"
+        },
+        {
+          "img": "/img/standardroom_5.jpg"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "price": 350,
+      "name": "Junior suites",
+      "img": "/img/Hotel2.avif",
+      "description": "These are typically smaller versions of standard suites. While the layout likely denotes a specific space intended for sleeping, as well as a designated living area, the two may not be physically separated by a barrier. In junior suites, the living space may be a smaller extension of the bedroom area that doesn't come with a separate dining space. But again, it varies from property to property. ",
+      "features": "Experience refined luxury in our Junior Suite, where style meets serenity. Cozy living spaces, tastefully furnished, provide the perfect setting for relaxation. Take in stunning views from large windows, surrounded by plush textures and soothing ambiance. Stay connected with modern amenities, including flat-screen TVs and high-speed internet. Enjoy convenient amenities like a well-stocked mini-bar and 24-hour room service. Unwind in the sleek bathroom, featuring premium toiletries and invigorating showers. Every detail, from the comfortable workspace to the plush queen-size bed, ensures a restful getaway. Discover the essence of comfort and elegance in our Junior Suite.",
+      "info": "Indulge in the perfect blend of comfort and style in our Junior Suite, designed for a luxurious experience",
+      "availability": "Available",
+      "rooms": 16,
+      "bedType": "Double Bed",
+      "rating": "5",
+      "review": "200",
+      "roomSize": "55 - 65 sq m",
+      "bedSize": "King",
+      "occupancy": "Up to 3 or 2 adults, 1 child",
+      "location": "Upper floors",
+      "view": "Panoramic city or partial ocean view",
+      "roomService": "Yes",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Yes",
+      "images": [
+        {
+          "img": "/img/juniorsuite_1.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_2.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_3.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_4.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_5.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "price": 350,
+      "name": "Junior suites",
+      "img": "/img/Hotel2.avif",
+      "description": "These are typically smaller versions of standard suites. While the layout likely denotes a specific space intended for sleeping, as well as a designated living area, the two may not be physically separated by a barrier. In junior suites, the living space may be a smaller extension of the bedroom area that doesn't come with a separate dining space. But again, it varies from property to property. ",
+      "features": "Experience refined luxury in our Junior Suite, where style meets serenity. Cozy living spaces, tastefully furnished, provide the perfect setting for relaxation. Take in stunning views from large windows, surrounded by plush textures and soothing ambiance. Stay connected with modern amenities, including flat-screen TVs and high-speed internet. Enjoy convenient amenities like a well-stocked mini-bar and 24-hour room service. Unwind in the sleek bathroom, featuring premium toiletries and invigorating showers. Every detail, from the comfortable workspace to the plush queen-size bed, ensures a restful getaway. Discover the essence of comfort and elegance in our Junior Suite.",
+      "info": "Indulge in the perfect blend of comfort and style in our Junior Suite, designed for a luxurious experience",
+      "availability": "Soldout",
+      "rooms": 16,
+      "bedType": "Double Bed",
+      "rating": "2.7",
+      "review": "200",
+      "roomSize": "55 - 65 sq m",
+      "bedSize": "King",
+      "occupancy": "Up to 3 or 2 adults, 1 child",
+      "location": "Upper floors",
+      "view": "Panoramic city or partial ocean view",
+      "roomService": "Yes",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Yes",
+      "images": [
+        {
+          "img": "/img/juniorsuite_1.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_2.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_3.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_4.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_5.jpg"
+        },
+        {
+          "img": "/img/juniorsuite_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "price": 1700,
+      "name": "Presidential suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Of all the different suite types, presidential suites are known for being some of the most impressive. If a hotel offers this suite type, there are usually only one or two available in the entire hotel — even with the largest brands. Presidential suites are some of the most expensive hotel rooms available for travelers to book on the entire market. Rates for the presidential suite at the Four Seasons Seattle, for example, begin around $6,500 a night.",
+      "features": "Experience unparalleled luxury in our Presidential Suite, where opulence meets sophistication. Spacious living areas, lavishly appointed with exquisite furnishings, create an imposing ambiance. Breathtaking views from floor-to-ceiling windows offer an unforgettable panorama. Stay connected with state-of-the-art amenities, including flat-screen TVs and high-speed internet. Savor exclusive conveniences like personalized butler service, a fully stocked premium mini-bar, and 24-hour room service. Unwind in the majestic marble-clad bathroom, featuring premium toiletries and rejuvenating rainfall showers. Every detail, from the expansive workspace to the plush king-size bed, ensures an unforgettable stay. Indulge in the pinnacle of luxury and personalized service in our Presidential Suite.",
+      "info": "Experience luxury and sophistication in our Presidential Suite, designed for an unforgettable stay",
+      "availability": "Available",
+      "rooms": 12,
+      "bedType": "Double Bed",
+      "rating": "5",
+      "review": "200",
+      "roomSize": "200 - 250 sq m",
+      "bedSize": "King, Luxury, orthopedic mattress",
+      "occupancy": "Up to 6 or 4 adults, 2 children",
+      "location": "Top floor",
+      "view": "Unobstructed city/ocean views",
+      "roomService": "24/7 personalized butler",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop pool",
+      "images": [
+        {
+          "img": "/img/presidential_1.jpg"
+        },
+        {
+          "img": "/img/presidential_2.jpg"
+        },
+        {
+          "img": "/img/presidential_3.jpg"
+        },
+        {
+          "img": "/img/presidential_4.jpg"
+        },
+        {
+          "img": "/img/presidential_5.jpg"
+        },
+        {
+          "img": "/img/presidential_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "price": 1700,
+      "name": "Presidential suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Of all the different suite types, presidential suites are known for being some of the most impressive. If a hotel offers this suite type, there are usually only one or two available in the entire hotel — even with the largest brands. Presidential suites are some of the most expensive hotel rooms available for travelers to book on the entire market. Rates for the presidential suite at the Four Seasons Seattle, for example, begin around $6,500 a night.",
+      "features": "Experience unparalleled luxury in our Presidential Suite, where opulence meets sophistication. Spacious living areas, lavishly appointed with exquisite furnishings, create an imposing ambiance. Breathtaking views from floor-to-ceiling windows offer an unforgettable panorama. Stay connected with state-of-the-art amenities, including flat-screen TVs and high-speed internet. Savor exclusive conveniences like personalized butler service, a fully stocked premium mini-bar, and 24-hour room service. Unwind in the majestic marble-clad bathroom, featuring premium toiletries and rejuvenating rainfall showers. Every detail, from the expansive workspace to the plush king-size bed, ensures an unforgettable stay. Indulge in the pinnacle of luxury and personalized service in our Presidential Suite.",
+      "info": "Experience luxury and sophistication in our Presidential Suite, designed for an unforgettable stay",
+      "availability": "Soldout",
+      "rooms": 12,
+      "bedType": "Double Bed",
+      "rating": "3",
+      "review": "200",
+      "roomSize": "200 - 250 sq m",
+      "bedSize": "King, Luxury, orthopedic mattress",
+      "occupancy": "Up to 6 or 4 adults, 2 children",
+      "location": "Top floor",
+      "view": "Unobstructed city/ocean views",
+      "roomService": "24/7 personalized butler",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop pool",
+      "images": [
+        {
+          "img": "/img/presidential_1.jpg"
+        },
+        {
+          "img": "/img/presidential_2.jpg"
+        },
+        {
+          "img": "/img/presidential_3.jpg"
+        },
+        {
+          "img": "/img/presidential_4.jpg"
+        },
+        {
+          "img": "/img/presidential_5.jpg"
+        },
+        {
+          "img": "/img/presidential_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "price": 3000,
+      "name": "Penthouse Suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Penthouse suites are usually located on the top floor of a luxury building and can take up the entire floor. Hotels that offer these accommodations are often found in the heart of iconic cities. Many casinos, luxury hotels, and exclusive resorts offer these suites to their most valued guests. For guest privacy, a hotel may require a card or key to be entered into the elevator to even access the penthouse floor.",
+      "features": "Experience the pinnacle of luxury at our Penthouse Suite, perched atop our hotel with breathtaking 360-degree views. This lavish retreat boasts spacious living areas, floor-to-ceiling windows, and a private balcony perfect for taking in the stunning panorama.Indulge in personalized butler service, 24-hour concierge, and complimentary gourmet dining and drinks. Unwind in the marble-clad bathroom with rainfall showers and soaking tub, or relax in the plush king-size bed with luxurious linens.",
+      "info": "Experience luxury in our Penthouse Suite, designed for breathtaking views and unparalleled comfort.",
+      "availability": "Available",
+      "rooms": 20,
+      "bedType": "Double Bed",
+      "rating": "4",
+      "review": "200",
+      "roomSize": "200 - 250 sq m",
+      "bedSize": "King, UltraLuxurious",
+      "occupancy": "Up to 8 or 6 adults, 2 children",
+      "location": "Top floor with 360-degree views",
+      "view": "Panoramic city/ocean views",
+      "roomService": "24/7 personalized butler",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop infinity pool",
+      "images": [
+        {
+          "img": "/img/penthouse_1.jpg"
+        },
+        {
+          "img": "/img/penthouse_2.jpg"
+        },
+        {
+          "img": "/img/penthouse_3.jpg"
+        },
+        {
+          "img": "/img/penthouse_4.jpg"
+        },
+        {
+          "img": "/img/penthouse_5.jpg"
+        },
+        {
+          "img": "/img/penthouse_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "price": 3000,
+      "name": "Penthouse Suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Penthouse suites are usually located on the top floor of a luxury building and can take up the entire floor. Hotels that offer these accommodations are often found in the heart of iconic cities. Many casinos, luxury hotels, and exclusive resorts offer these suites to their most valued guests. For guest privacy, a hotel may require a card or key to be entered into the elevator to even access the penthouse floor.",
+      "features": "Experience the pinnacle of luxury at our Penthouse Suite, perched atop our hotel with breathtaking 360-degree views. This lavish retreat boasts spacious living areas, floor-to-ceiling windows, and a private balcony perfect for taking in the stunning panorama.Indulge in personalized butler service, 24-hour concierge, and complimentary gourmet dining and drinks. Unwind in the marble-clad bathroom with rainfall showers and soaking tub, or relax in the plush king-size bed with luxurious linens.",
+      "info": "Experience luxury in our Penthouse Suite, designed for breathtaking views and unparalleled comfort.",
+      "availability": "Soldout",
+      "rooms": 20,
+      "bedType": "Double Bed",
+      "rating": "3",
+      "review": "200",
+      "roomSize": "200 - 250 sq m",
+      "bedSize": "King, UltraLuxurious",
+      "occupancy": "Up to 8 or 6 adults, 2 children",
+      "location": "Top floor with 360-degree views",
+      "view": "Panoramic city/ocean views",
+      "roomService": "24/7 personalized butler",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop infinity pool",
+      "images": [
+        {
+          "img": "/img/penthouse_1.jpg"
+        },
+        {
+          "img": "/img/penthouse_2.jpg"
+        },
+        {
+          "img": "/img/penthouse_3.jpg"
+        },
+        {
+          "img": "/img/penthouse_4.jpg"
+        },
+        {
+          "img": "/img/penthouse_5.jpg"
+        },
+        {
+          "img": "/img/penthouse_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "price": 1200,
+      "name": "Honeymoon Suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Designed with couples in mind, honeymoon suites are also known as romance suites. Honeymoon suites usually offer amenities, services, and special accommodations related to romance. Guests may arrive to find champagne, roses, chocolates, and fresh flowers in their rooms. Many newlyweds book honeymoon suites as part of a vacation or honeymoon travel package, coupled with excursions, activities, and private dining add-ons.",
+      "features": "A Honeymoon Suite is a romantic oasis designed for newlyweds, featuring a lavish king-size bed, marble-clad bathroom with whirlpool tub, and private balcony with stunning views. Enjoy intimate amenities like complimentary champagne, strawberries, and candlelit dinner setup. Unwind with couples' spa treatments, relaxing in the private sauna or indulging in 24/7 room service. Personalized concierge service, priority reservations, and turndown service with rose petals create a blissful retreat. Some suites may also offer private pools, outdoor gazebos, or personal butler service, ensuring an unforgettable honeymoon experience",
+      "info": "Discover a romantic oasis in our Honeymoon Suite, designed for newlyweds with luxurious amenities and stunning views.",
+      "availability": "Available",
+      "rooms": 18,
+      "bedType": "Double Bed",
+      "rating": "3.5",
+      "review": "200",
+      "roomSize": "80 - 120 sq m",
+      "bedSize": "King",
+      "occupancy": "2 Adults",
+      "location": " Romantic spot",
+      "view": "Panoramic ocean views",
+      "roomService": "24/7",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop pool",
+      "images": [
+        {
+          "img": "/img/Honeymoon_1.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_2.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_3.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_4.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_5.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "price": 1200,
+      "name": "Honeymoon Suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Designed with couples in mind, honeymoon suites are also known as romance suites. Honeymoon suites usually offer amenities, services, and special accommodations related to romance. Guests may arrive to find champagne, roses, chocolates, and fresh flowers in their rooms. Many newlyweds book honeymoon suites as part of a vacation or honeymoon travel package, coupled with excursions, activities, and private dining add-ons.",
+      "features": "A Honeymoon Suite is a romantic oasis designed for newlyweds, featuring a lavish king-size bed, marble-clad bathroom with whirlpool tub, and private balcony with stunning views. Enjoy intimate amenities like complimentary champagne, strawberries, and candlelit dinner setup. Unwind with couples' spa treatments, relaxing in the private sauna or indulging in 24/7 room service. Personalized concierge service, priority reservations, and turndown service with rose petals create a blissful retreat. Some suites may also offer private pools, outdoor gazebos, or personal butler service, ensuring an unforgettable honeymoon experience",
+      "info": "Discover a romantic oasis in our Honeymoon Suite, designed for newlyweds with luxurious amenities and stunning views.",
+      "availability": "Soldout",
+      "rooms": 18,
+      "bedType": "Double Bed",
+      "rating": "2.4",
+      "review": "200",
+      "roomSize": "80 - 120 sq m",
+      "bedSize": "King",
+      "occupancy": "2 Adults",
+      "location": "Romantic spot",
+      "view": "Panoramic ocean views",
+      "roomService": "24/7",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop pool",
+      "images": [
+        {
+          "img": "/img/Honeymoon_1.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_2.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_3.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_4.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_5.jpg"
+        },
+        {
+          "img": "/img/Honeymoon_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "price": 1800,
+      "name": "Bridal Suites",
+      "img": "/img/Hotel2.avif",
+      "description": "Hotels that specialize in wedding services and accommodation often offer bridal suites to help the bridal party prepare for the big day. Typically large, open rooms with flexible work areas, many soon-to-be-weds use this space to get their makeup and hair done, get dressed, and celebrate with the bridal party.",
+      "features": "A Bridal Suite is an exquisite, luxurious haven featuring a king-size bed with plush linens, marble-clad bathroom with rainfall shower and separate tub, and private balcony with breathtaking views. Enjoy complimentary champagne and strawberries, fresh flower arrangements, 24/7 room service, and personalized concierge service. Additional touches include a private dressing room with vanity, hair and makeup station, manicure/pedicure services, candlelit dinner setup, private couples' spa treatment, and sunset champagne toast, with priority reservations for the wedding reception, providing the ultimate retreat for brides-to-be.",
+      "info": "Experience a luxurious haven in our Bridal Suite, designed for brides-to-be with exceptional and stunning views.",
+      "availability": "Available",
+      "rooms": 6,
+      "bedType": "Double Bed",
+      "rating": "4.5",
+      "review": "200",
+      "roomSize": "100 - 150 sq m",
+      "bedSize": "King",
+      "occupancy": "2 to 4 Adults",
+      "location": "Prime spot",
+      "view": "Panoramic views",
+      "roomService": "24/7",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop pool",
+      "images": [
+        {
+          "img": "/img/bridal_1.jpg"
+        },
+        {
+          "img": "/img/bridal_2.jpg"
+        },
+        {
+          "img": "/img/bridal_3.jpg"
+        },
+        {
+          "img": "/img/bridal_4.jpg"
+        },
+        {
+          "img": "/img/bridal_5.jpg"
+        },
+        {
+          "img": "/img/bridal_6.jpg"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "price": 1800,
+      "name": "Bridal Suites",
+      "description": "Hotels that specialize in wedding services and accommodation often offer bridal suites to help the bridal party prepare for the big day. Typically large, open rooms with flexible work areas, many soon-to-be-weds use this space to get their makeup and hair done, get dressed, and celebrate with the bridal party.",
+      "features": "A Bridal Suite is an exquisite, luxurious haven featuring a king-size bed with plush linens, marble-clad bathroom with rainfall shower and separate tub, and private balcony with breathtaking views. Enjoy complimentary champagne and strawberries, fresh flower arrangements, 24/7 room service, and personalized concierge service. Additional touches include a private dressing room with vanity, hair and makeup station, manicure/pedicure services, candlelit dinner setup, private couples' spa treatment, and sunset champagne toast, with priority reservations for the wedding reception, providing the ultimate retreat for brides-to-be.",
+      "info": "Experience a luxurious haven in our Bridal Suite, designed for brides-to-be with exceptional and stunning views.",
+      "availability": "Soldout",
+      "rooms": 6,
+      "bedType": "Double Bed",
+      "rating": "5",
+      "review": "200",
+      "roomSize": "100 - 150 sq m",
+      "bedSize": "King",
+      "occupancy": "2 to 4 Adults",
+      "location": "Prime spot",
+      "view": "Panoramic views",
+      "roomService": "24/7",
+      "smoking": "Non-smoking",
+      "swimmingPool": "Private rooftop pool",
+      "images": [
+        {
+          "img": "/img/bridal_1.jpg"
+        },
+        {
+          "img": "/img/bridal_2.jpg"
+        },
+        {
+          "img": "/img/bridal_3.jpg"
+        },
+        {
+          "img": "/img/bridal_4.jpg"
+        },
+        {
+          "img": "/img/bridal_5.jpg"
+        },
+        {
+          "img": "/img/bridal_6.jpg"
+        }
+      ]
+    }
+  ],
+  "guest": [
+    {
+      "id": "2233",
+      "name": "Johnson Freeman",
+      "firstName": "Johnson",
+      "lastName": "Freeman",
+      "mail": "johnsonfreeman@gmail.com",
+      "orderDate": "Sunday, Oct 24th, 2020",
+      "orderTime": "08:29 AM",
+      "checkInDate": "Oct 29th, 2020",
+      "checkInTime": "08:29 AM",
+      "checkOutDate": "Oct 31th, 2020",
+      "checkOutTime": "08:29 AM",
+      "roomType": "Presidential suite",
+      "status": "Canceled"
+    },
+    {
+      "id": "2235",
+      "name": "Emmanuel Jacob",
+      "firstName": "Emmanuel",
+      "lastName": "Jacob",
+      "mail": "emmanueljacob@gmail.com",
+      "orderDate": "Sunday, Oct 24th, 2020",
+      "orderTime": "08:29 AM",
+      "checkInDate": "Oct 29th, 2020",
+      "checkInTime": "08:29 AM",
+      "checkOutDate": "Oct 31th, 2020",
+      "checkOutTime": "08:29 AM",
+      "roomType": "HoneyMoon suite",
+      "status": "Pending"
+    },
+    {
+      "id": "2236",
+      "name": "Tobi Olobe",
+      "firstName": "Tobi",
+      "lastName": "Olobe",
+      "mail": "johnsonfreeman@gmail.com",
+      "orderDate": "Sunday, Oct 24th, 2020",
+      "orderTime": "08:29 AM",
+      "checkInDate": "Oct 29th, 2020",
+      "checkInTime": "08:29 AM",
+      "checkOutDate": "Oct 31th, 2020",
+      "checkOutTime": "08:29 AM",
+      "roomType": "Bridal suite",
+      "status": "Canceled"
+    },
+    {
+      "id": "095b",
+      "name": "",
+      "orderDate": "Sunday, Oct 24th, 2024",
+      "orderTime": "09:45 AM",
+      "checkInTime": "02:00 PM",
+      "checkInDate": "Oct 27th, 2024",
+      "checkOutTime": "11:00 AM",
+      "checkOutDate": "Oct 31th, 2024",
+      "roomType": "Junior Suite"
+    },
+    {
+      "id": "a203",
+      "name": "",
+      "orderDate": "",
+      "orderTime": "",
+      "checkInDate": "",
+      "checkInTime": "02:00 PM",
+      "checkOutTime": "11:00 AM",
+      "checkOutDate": "",
+      "roomType": "",
+      "status": "Booked"
+    }
+  ],
+  "concierge": [
+    {
+      "id": "00025",
+      "name": "Davis Stanton",
+      "date": "June, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "00027",
+      "name": "Gretchen Botosh",
+      "date": "February, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "00028",
+      "name": "Jaxson Saris",
+      "date": "February, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "00029",
+      "name": "Kadin Vetrovs",
+      "date": "February, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "00030",
+      "name": "Kaiya Culhane",
+      "date": "February, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "00031",
+      "name": "Alfonso Franci",
+      "date": "February, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "00032",
+      "name": "Roger Levin",
+      "date": "February, 2012",
+      "description": "Answering guest inquiries, directing phone calls, coordinating travel plans, and more.",
+      "img": "/img/Hotel15.avif"
+    },
+    {
+      "id": "d5f5",
+      "name": "",
+      "img": "",
+      "email": "",
+      "phone": "",
+      "password": "",
+      "confirmPassword": "",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "d570",
+      "name": "this is my ",
+      "img": {
+        "0": {}
+      },
+      "email": "tobiolobe@gmail.cm",
+      "phone": "12345678",
+      "date": "february 2 2024",
+      "description": "qwertyui, asdfghj,mnbvcx"
+    },
+    {
+      "id": "1bb5",
+      "name": "",
+      "img": "",
+      "email": "",
+      "phone": "",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "c4d0",
+      "name": "",
+      "img": "",
+      "email": "",
+      "phone": "",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "8d69",
+      "name": "",
+      "img": "",
+      "email": "",
+      "phone": "",
+      "date": "",
+      "description": ""
+    },
+    {
+      "id": "28f4",
+      "name": "",
+      "img": "",
+      "email": "",
+      "phone": "",
+      "date": "",
+      "description": ""
+    }
+  ],
+  "reviews": [
+    {
+      "id": "#RV-0012",
+      "name": "Andy Lee",
+      "point": "I love that room service",
+      "description": "We were totally refreshed and rejuvenated for the whole of next year and it was due to the relaxing stay at the hotel. The hotel is absolutely marvelous! We liked absolutely everything, starting from the breakfast through to the perfect room service including the cleanliness and extra services such as dry cleaning and laundry. In general all the staff at the hotel were professional, friendly and provided excellent service. We will return for sure",
+      "rating": "4.8"
+    },
+    {
+      "id": "#RV-0013",
+      "name": "Andy Lee",
+      "point": "I love that room service",
+      "description": "We were totally refreshed and rejuvenated for the whole of next year and it was due to the relaxing stay at the hotel. The hotel is absolutely marvelous! We liked absolutely everything, starting from the breakfast through to the perfect room service including the cleanliness and extra services such as dry cleaning and laundry. In general all the staff at the hotel were professional, friendly and provided excellent service. We will return for sure",
+      "rating": "4.8"
+    },
+    {
+      "id": "#RV-0014",
+      "name": "Andy Lee",
+      "point": "I love that room service",
+      "description": "We were totally refreshed and rejuvenated for the whole of next year and it was due to the relaxing stay at the hotel. The hotel is absolutely marvelous! We liked absolutely everything, starting from the breakfast through to the perfect room service including the cleanliness and extra services such as dry cleaning and laundry. In general all the staff at the hotel were professional, friendly and provided excellent service. We will return for sure",
+      "rating": "4.8"
+    },
+    {
+      "id": "#RV-0015",
+      "name": "Andy Lee",
+      "point": "I love that room service",
+      "description": "We were totally refreshed and rejuvenated for the whole of next year and it was due to the relaxing stay at the hotel. The hotel is absolutely marvelous! We liked absolutely everything, starting from the breakfast through to the perfect room service including the cleanliness and extra services such as dry cleaning and laundry. In general all the staff at the hotel were professional, friendly and provided excellent service. We will return for sure",
+      "rating": "4.8"
+    },
+    {
+      "id": "#RV-0016",
+      "name": "Andy Lee",
+      "point": "I love that room service",
+      "description": "We were totally refreshed and rejuvenated for the whole of next year and it was due to the relaxing stay at the hotel. The hotel is absolutely marvelous! We liked absolutely everything, starting from the breakfast through to the perfect room service including the cleanliness and extra services such as dry cleaning and laundry. In general all the staff at the hotel were professional, friendly and provided excellent service. We will return for sure",
+      "rating": "4.8"
+    },
+    {
+      "id": "#RV-0017",
+      "name": "Andy Lee",
+      "point": "I love that room service",
+      "description": "We were totally refreshed and rejuvenated for the whole of next year and it was due to the relaxing stay at the hotel. The hotel is absolutely marvelous! We liked absolutely everything, starting from the breakfast through to the perfect room service including the cleanliness and extra services such as dry cleaning and laundry. In general all the staff at the hotel were professional, friendly and provided excellent service. We will return for sure",
+      "rating": "4.8"
+    }
+  ]
+}

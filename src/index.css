@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+    transition: all;
+}
+.header{
+    background: rgba(21, 21, 21, .92);
+}
+.serve .img h1{
+    background: rgba(21, 21, 21, .92);
+}
+.excellent .sect .txt button{
+    background: rgba(21, 21, 21, .92);
+}
+.fg{
+    background: rgba(21, 21, 21, .92);
+}
+.address {
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    padding: .4em;
+    width: 100%;
+    display: block;
+    margin-top: 1rem;
+    display: flex;
+}
+.address h1{
+    text-align: left !important;
+}
+.address h2{
+    text-align: right !important;
+    padding-left: 9em;
+}
+
+table{
+    border-collapse: collapse;
+    text-align: left;
+    font-family: sans-serif;
+}
