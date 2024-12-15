@@ -1,17 +1,32 @@
-import React, { useContext, useState } from 'react'
-import HotelContext from '../context/HotelContext'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 function rooms() {
-  const { roomType } = useContext(HotelContext);
   const [startDate, setStartDate] = useState('');
   const [endDate, setEndDate] = useState('');
   const [totalRooms, setTotalRooms] = useState('');
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [load, setLoad] = useState(true)
+  const [roomType, setRoomType] = useState([]);
   const navigate = useNavigate()
 
   const today = new Date().toISOString().split("T")[0]
+
+  const fetchRoomType = async () => {
+    try {
+        const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-roomType");
+        const roomType = await response.json()
+        setRoomType(roomType.data)
+        setLoad(false)
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchRoomType()
+  })
   
   const availabilityHandler = async (e) => {
     e.preventDefault();
@@ -51,7 +66,16 @@ function rooms() {
     <>
         <div className="rooms md:flex max-w-3xl lg:max-w-5xl m-auto py-24">
           <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 max-w-lg md:max-w-6xl mx-auto'>
-            {roomType.map((items, index) => (
+          {load ? (
+              <div className="">
+                  <div className="flex-col gap-4">
+                      <div className="w-[10rem] h-[10rem] border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
+                          <div className="w-[10rem] h-[10rem] border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
+                      </div>
+                  </div>
+              </div> 
+          ):(
+            roomType.map((items, index) => (
               <div key={index} className="item rounded m-4 bg-slate-100">
                 <img src={items.images[0].img} alt="" className='h-[15em] w-full object-cover' />
                 <div className="card p-6 shadow-xl">
@@ -74,7 +98,7 @@ function rooms() {
                   </div>
                 </div>
               </div>
-            ))}
+            )))}
           </div>
           <div className="mb-8 my-4 bg-black h-fit max-w-lg md:max-w-6xl mx-auto "  id="check-availability">
                 <div className="mini p-4 md:p-0 md:w-[30vw] lg:w-[20vw]">
