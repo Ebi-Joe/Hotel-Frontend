@@ -67,11 +67,12 @@ function rooms() {
         <div className="rooms md:flex max-w-3xl lg:max-w-5xl m-auto py-24">
           <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 max-w-lg md:max-w-6xl mx-auto'>
           {load ? (
-              <div className="">
+              <div className="flex justify-center items-center">
                   <div className="flex-col gap-4">
                       <div className="w-[10rem] h-[10rem] border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
                           <div className="w-[10rem] h-[10rem] border-4 border-transparent text-red-400 text-2xl animate-spin flex items-center justify-center border-t-red-400 rounded-full"></div>
                       </div>
+                      <h1 className='text-xl font-semibold'>Be Patient While Loading</h1>
                   </div>
               </div> 
           ):(
