@@ -27,7 +27,6 @@ import GuestList from './Admin/GuestList';
 import Reviews from './Admin/Reviews';
 import NewReview from './Admin/NewReview';
 import BookingPage from './components/pages/BookingPage';
-import VerifyEmail from './components/pages/VerifyEmail';
 import ForgotPassword from './components/pages/ForgotPassword';
 import { AuthProvider } from './context/AuthContext';
 import RoomType from './Admin/RoomType';
@@ -48,7 +47,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false)
-    }, 500)
+    }, 2000)
     return () => timer
   }, [])
 
@@ -77,7 +76,7 @@ function App() {
             </>}/>
 
             <Route path = "/api/verify/:token" element={<>
-              <VerifyEmail/>
+              <Verification/>
             </>}/>
 
             <Route path='/' element={<>
