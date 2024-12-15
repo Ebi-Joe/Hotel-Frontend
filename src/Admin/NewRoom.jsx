@@ -22,7 +22,7 @@ function newRoom() {
         setLoading(true);
 
         try {
-            const res = await fetch("http://localhost:8000/api/newRoom", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/newRoom", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'

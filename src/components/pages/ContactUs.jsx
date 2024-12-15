@@ -19,7 +19,7 @@ function ContactUs() {
         setGood('')
         setLoading(true)
         try {
-            const res = await fetch("http://localhost:8000/api/newContact", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/newContact", {
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json"

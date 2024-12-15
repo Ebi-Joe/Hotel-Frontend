@@ -6,7 +6,7 @@ function VerifyEmail() {
   const { token } = useParams()
 
   const verification = async () => {
-    const res = await fetch(`http://localhost:8000/api/verify-email?token=${token}`, {
+    const res = await fetch(`https://hotel-backend-itqc.onrender.com/api/verify-email?token=${token}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

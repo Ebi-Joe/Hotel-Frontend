@@ -8,7 +8,7 @@ function Room() {
 
   const fetchRooms = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-room");
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-room");
             const rooms = await response.json()
             setRoom(rooms.data)
             setLoading(false)

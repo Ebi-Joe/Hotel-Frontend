@@ -7,7 +7,7 @@ function Contacts() {
 
     const fetchContacts = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-contact")
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-contact")
             const contacts = await response.json()
             setContacts(contacts)
             setLoading(false)

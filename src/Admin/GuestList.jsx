@@ -11,7 +11,7 @@ function GuestList() {
     
     const fetchUsers = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-users")
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-users")
             const data = await response.json()
             setUser(data.data) 
             setLoading(false)       

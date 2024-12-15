@@ -29,7 +29,7 @@ function Testimonials() {
         setError('');
         setGood('')
         try {
-            const res = await fetch("http://localhost:8000/api/newReview", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/newReview", {
                 method: "POST",
                 headers: {
                     'Content-Type': "application/json"

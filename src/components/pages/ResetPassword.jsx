@@ -30,7 +30,7 @@ function ResetPassword() {
 
 
         try { 
-            const res = await fetch("http://localhost:8000/api/resetPassword", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/resetPassword", {
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json"

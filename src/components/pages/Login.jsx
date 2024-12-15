@@ -18,7 +18,7 @@ function Login() {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:8000/api/login',{
+      const res = await fetch('https://hotel-backend-itqc.onrender.com/api/login',{
         method:'POST',
         headers:{
           'Content-Type':'application/json'

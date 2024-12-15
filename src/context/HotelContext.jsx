@@ -41,7 +41,7 @@ export const HotelProvider = ({ children }) => {
 
     const fetchRoomType = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-roomType");
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-roomType");
             const data = await response.json()
             setRoomType(data.data)
         } catch (error) {
@@ -51,7 +51,7 @@ export const HotelProvider = ({ children }) => {
 
     const fetchRooms = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-room");
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-room");
             const rooms = await response.json()
             setRoom(rooms.data)
             setCount(rooms.rooms)
@@ -62,7 +62,7 @@ export const HotelProvider = ({ children }) => {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-users")
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-users")
             const data = await response.json()
             setUsers(data)                 
             setNo(data.no)               
@@ -74,7 +74,7 @@ export const HotelProvider = ({ children }) => {
     const fetchUser = async () => {
         if (isAuthenticated) {
             try {
-                const response = await fetch("http://localhost:8000/api/me",{
+                const response = await fetch("https://hotel-backend-itqc.onrender.com/api/me",{
                     method:'GET',
                     headers:{
                         'Content-Type':'application/json',
@@ -94,7 +94,7 @@ export const HotelProvider = ({ children }) => {
     
     const fetchGuestOrder = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-Bookings")
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-Bookings")
             const data = await response.json()
             setOrder(data)        
         } catch (error) {
@@ -104,7 +104,7 @@ export const HotelProvider = ({ children }) => {
 
     const fetchConcierge = async () => {
         try{
-            const response = await fetch("http://localhost:8000/api/getAll-concierges")
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-concierges")
             const data = await response.json()
             setConcierge(data)
         }catch (error) {
@@ -114,7 +114,7 @@ export const HotelProvider = ({ children }) => {
 
     const fetchReviews = async () => {
         try {
-            const response = await fetch("http://localhost:8000/api/getAll-review")
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-review")
             const data = await response.json()
             setReviews(data)
         } catch (error) {
@@ -124,7 +124,7 @@ export const HotelProvider = ({ children }) => {
 
     // const deleteuser = async (id) => {
     //     try {
-    //         const res = await fetch("http://localhost:8000/api/deleteOne-user", {
+    //         const res = await fetch("https://hotel-backend-itqc.onrender.com/api/deleteOne-user", {
     //             method: "DELETE"
     //         })
     //         if(window.confirm("Are you sure you want to delete??")) {
@@ -137,7 +137,7 @@ export const HotelProvider = ({ children }) => {
 
     const deleteConcierge = async (id) => {
         try {
-            const res = await fetch(`http://localhost:8000/api/deleteOne-concierge/${id}`, {
+            const res = await fetch(`https://hotel-backend-itqc.onrender.com/api/deleteOne-concierge/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

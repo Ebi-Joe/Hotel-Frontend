@@ -48,7 +48,7 @@ function BookingPage() {
         setGood('')
 
         try {
-            const res = await fetch("http://localhost:8000/api/booking", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json"

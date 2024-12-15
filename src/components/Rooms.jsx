@@ -27,7 +27,7 @@ function rooms() {
     setError('');
     setLoading(true)
     try {
-      const res = await fetch("http://localhost:8000/api/checkAvailability", {
+      const res = await fetch("https://hotel-backend-itqc.onrender.com/api/checkAvailability", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

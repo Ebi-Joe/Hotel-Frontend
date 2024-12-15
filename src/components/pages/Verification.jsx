@@ -19,7 +19,7 @@ function Verification() {
         setLoading(true)
 
         try {
-            const res = await fetch("http://localhost:8000/api/verify-email", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/verify-email", {
                 method: "POST",
                 headers: {
                     "Content-Type" : "application/json"

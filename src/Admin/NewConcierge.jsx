@@ -39,7 +39,7 @@ function NewConcierge() {
             formData.append("date", date);
             formData.append("description", description);
 
-            const res = await fetch("http://localhost:8000/api/newConcierge", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/newConcierge", {
                 method: "POST",
                 body: formData
             })

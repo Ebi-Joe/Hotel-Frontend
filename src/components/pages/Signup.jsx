@@ -19,7 +19,7 @@ function Signup() {
     setGood('')
      
     try {
-      const res = await fetch ("http://localhost:8000/api/signup", {
+      const res = await fetch ("https://hotel-backend-itqc.onrender.com/api/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
