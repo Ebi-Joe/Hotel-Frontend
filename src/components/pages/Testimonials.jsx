@@ -77,7 +77,7 @@ function Testimonials() {
 
         <Header/>
         <div className="testimonial flex relative justify-center items-center text-center">
-            <img src="/img/Testimonial.jpg" alt="" className='h-[63vh] lg:h-full w-screen object-cover' />
+            <img src="/img/Testimonial.jpg" alt="" className='brightness-75 h-[63vh] lg:h-full w-screen object-cover' />
             <h3 className='absolute text-7xl text-white'>Testimonials</h3>
         </div>
 
