@@ -36,7 +36,7 @@ function Verification() {
                 if (data.message) {
                     setError(data.message)
                 } else {
-                    setError("An Error Was Encountered While Resetting Password")
+                    setError("An Error Was Encountered While Verifying Email")
                 }
             }
         } catch (error) {

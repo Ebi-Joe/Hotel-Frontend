@@ -76,7 +76,7 @@ function App() {
               <ResetPassword/>
             </>}/>
 
-            <Route path = "/verify/:token" element={<>
+            <Route path = "/api/verify/:token" element={<>
               <VerifyEmail/>
             </>}/>
 
