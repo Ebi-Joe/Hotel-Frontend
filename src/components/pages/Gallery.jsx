@@ -5,14 +5,14 @@ function Gallery() {
     <>
       <div className="gallery">
         <h1 className='text-3xl font-semibold text-center pt-24'>Welcome To Hotel Gallery</h1>
-        <div className="imgs grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-4 py-8">
+        <div className="imgs grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 px-4 py-8">
             <img src="/img/Hotel5.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel4.avif" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel3.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel18.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel4.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel8.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
-            <img src="/img/Gallery.jpg" alt="" className='px-1 py-1 rounded-lg object-cover'/>
+            <img src="/img/Gallery.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel1.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel10.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
             <img src="/img/Hotel2.jpg" alt="" className='px-1 py-1 rounded-lg h-[100%] object-cover'/>
