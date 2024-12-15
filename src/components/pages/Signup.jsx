@@ -109,7 +109,6 @@ function Signup() {
                 <label className='py-12' htmlFor="">Role</label>
                 <select onChange={(e) => setRole(e.target.value)} name="" id="" className='border block p-2 rounded w-full'>
                   <option value="Guest">Guest</option>
-                  <option value="Admin">Admin</option>
                 </select>
               </div>
 
