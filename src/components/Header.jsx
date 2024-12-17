@@ -12,14 +12,11 @@ function Header() {
   const { deleteItem } = useLocalStorage("auth-token")
   const navigate = useNavigate()
 
-  
-  
   const logOut = (e) => {
     e.preventDefault()
     dispatch({ type: "setToken", payload: null })
     deleteItem("auth-token")   
     navigate("/login")
-    showHide("Success", "You Have Been Logged Out You Can Access Other Free Areas Of the WebPage")
     localStorage.clear();
   }
 
