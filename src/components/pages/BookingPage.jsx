@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import Header from '../Header'
 import { FaCcVisa } from "react-icons/fa6";
 import { FaCcMastercard } from "react-icons/fa";
@@ -10,18 +10,6 @@ import Modal from '../shared/Modal';
 function BookingPage() {
     const [open, setOpen] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [email, setEmail] = useState('');
-    const [currency, setCurrency] = useState('USD');
-    const [roomType, setRoomType] = useState('');
-    const [roomName, setRoomName] = useState('');
-    const [rooms, setRooms] = useState('');
-    const [CheckInDate, setCheckInDate] = useState('');
-    const [CheckOutDate, setCheckOutDate] = useState('');
-    const [amount, setAmount] = useState('');
-    const [totalDays, setTotalDays] = useState('');
     const [error, setError] = useState('');
     const [good, setGood] = useState();
     const [loading, setLoading] = useState(false);
@@ -41,6 +29,20 @@ function BookingPage() {
 
     const handlePayment = async (e) => {
         e.preventDefault();
+
+        const firstName = e.target.elements.firstName.value;
+        const lastName = e.target.elements.lastName.value;
+        const phone = e.target.elements.phone.value;
+        const email = e.target.elements.email.value;
+        const currency = e.target.elements.currency.value;
+        const roomType = e.target.elements.roomType.value;
+        const roomName = e.target.elements.roomName.value;
+        const rooms = e.target.elements.rooms.value;
+        const CheckInDate = e.target.elements.CheckInDate.value;
+        const CheckOutDate = e.target.elements.CheckOutDate.value;
+        const amount = e.target.elements.amount.value;
+        const totalDays = e.target.elements.totalDays.value;
+
         if (!firstName || !lastName || !phone || !email || !currency || !roomType || !roomName || !rooms || !CheckInDate || !CheckOutDate || !amount || !totalDays) {
             setError("Please Fill In All Fields.")
         }
@@ -81,7 +83,7 @@ function BookingPage() {
             <div className="py-2">
                 <h1 className='text-4xl font-semibold text-[#6cd234]'>Booking Page</h1>
             </div>
-            <form action="" onSubmit={handlePayment}>
+            <form action="" onSubmit={(e) => handlePayment(e)}>
                 <div className="grid md:grid-flow-col gap-4">
                     <div className="border-[1px] h-fit p-4 my-2 lg:w-[50vw]">
                         <h1 className='text-3xl font-semibold'>Contact Info</h1>
@@ -210,9 +212,7 @@ function BookingPage() {
         {
             open &&
             <Modal>
-                <div
-                className="group select-none flex flex-col p-4 relative items-center justify-center bg-gray-800 border border-gray-800 shadow-lg rounded-2xl"
-                >
+                <div className="group select-none flex flex-col p-4 relative items-center justify-center bg-gray-800 border border-gray-800 shadow-lg rounded-2xl">
                 <div className="">
                     <div className="text-center p-3 flex-auto justify-center">
                     <svg
@@ -222,9 +222,9 @@ function BookingPage() {
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <path
-                        clip-rule="evenodd"
+                        clipRule="evenodd"
                         d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         ></path>
                     </svg>
                     <h2 className="text-xl font-bold py-4 text-gray-200">Are You Sure You Want To Proceed?</h2>
