@@ -29,7 +29,7 @@ function BookingPage() {
 
     const handlePayment = async (e) => {
         e.preventDefault();
-
+    
         const firstName = e.target.elements.firstName.value;
         const lastName = e.target.elements.lastName.value;
         const phone = e.target.elements.phone.value;
@@ -42,34 +42,39 @@ function BookingPage() {
         const CheckOutDate = e.target.elements.CheckOutDate.value;
         const amount = e.target.elements.amount.value;
         const totalDays = e.target.elements.totalDays.value;
-
+    
         if (!firstName || !lastName || !phone || !email || !currency || !roomType || !roomName || !rooms || !CheckInDate || !CheckOutDate || !amount || !totalDays) {
-            setError("Please Fill In All Fields.")
+            setError("Please Fill In All Fields.");
+            return; // Prevent further execution
         }
-        setError('')
-        setGood('')
-
+    
+        setError('');
+        setGood('');
+        setLoading(true); // Set loading state
+    
         try {
-            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/booking", {
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/booking", { // Update with your backend URL
                 method: "POST",
                 headers: {
-                    "Content-Type" : "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckOutDate, amount, totalDays })
-            })
+            });
+    
             const data = await res.json();
+    
             if (res.ok) {
-                window.location.href = data.link
-                console.log(data.link);            
-            } else if (data.message) {
-                setError(data.message)
+                window.location.href = data.link; // Redirect to payment link
+            } else {
+                setError(data.message || "An error occurred");
             }
         } catch (error) {
-            console.log(error);            
+            console.error("Error during payment:", error);
+            setError("An error occurred while processing your request.");
         } finally {
-            setLoading(false)
+            setLoading(false); // Reset loading state
         }
-    }
+    };
   return (
     <>
          <div className="flex items-center justify-center">
@@ -89,16 +94,16 @@ function BookingPage() {
                         <h1 className='text-3xl font-semibold'>Contact Info</h1>
                         <div className="">
                             <div className="m-1">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" onChange={(e) => setFirstName(e.target.value)} placeholder='First Name *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" placeholder='First Name *' required/>
                             </div>
                             <div className="m-1 my-4">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" onChange={(e) => setLastName(e.target.value)} placeholder='Last Name *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" placeholder='Last Name *' required/>
                             </div>
                             <div className="m-1 my-4">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="number" onChange={(e) => setPhone(e.target.value)} placeholder='Phone Number *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="number" placeholder='Phone Number *' required/>
                             </div>
                             <div className="m-1">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" onChange={(e) => setEmail(e.target.value)} placeholder='Email Address *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" placeholder='Email Address *' required/>
                                 <label htmlFor="" className='text-xs font-semibold'>This is the email we will send your confirmation to*</label>
                             </div>
                         </div>
@@ -120,13 +125,13 @@ function BookingPage() {
                                     <div key={index} className="md:w-[40vw] lg:w-[30vw] h-fit border-[1px] p-4 my-2">
                                         <div className="">
                                             <h1 className='text-2xl py-2 font-semibold'>Your Booking List: 1 Item</h1>
-                                            <h1 className='text-lg font-medium' onChange={(e) => setAmount(e.target.value)}>Total USD {items.totalPrice}.00</h1>
+                                            <h1 className='text-lg font-medium'>Total USD {items.totalPrice}.00</h1>
                                             <h1 className='py-1.5'>Including taxes and fees</h1>
                                         </div>
-                                        <h1 className='hidden' onChange={(e) => setRoomType(e.target.value)}>{items.roomType}</h1>
+                                        <h1 className='hidden'>{items.roomType}</h1>
                                         <div className="border-[1.5px] border-[#737373] p-3 px-4 my-2">
                                             <div className="flex place-content-between text-[16px] font-medium py-1">
-                                                <h1 className='border-b-[1.4px] border-[#171717]' onChange={(e) => setRoomName(e.target.value)}>{items.roomName}</h1>
+                                                <h1 className='border-b-[1.4px] border-[#171717]'>{items.roomName}</h1>
                                                 <h1>USD {items.price}.00</h1>
                                             </div>
                                             <div className="text-[16px] font-semibold flex place-content-between">
@@ -134,7 +139,7 @@ function BookingPage() {
                                                 <h1>USD {items.prices}.00</h1>
                                             </div>  
                                             <div className="text-[16px]">
-                                                <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline' onChange={(e) => setTotalDays(e.target.value)}>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' onChange={(e) => setRooms(e.target.value)}>{items.numberOfRooms}</span> Rooms</h1>
+                                                <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline'>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' onChange={(e) => setRooms(e.target.value)}>{items.numberOfRooms}</span> Rooms</h1>
                                             </div>
                                             <div className="text-[16px] py-1.5 flex place-content-between">
                                                 <h1>Taxes and Fees</h1>
@@ -145,8 +150,8 @@ function BookingPage() {
                                                 <h1>CheckOut Date</h1>
                                             </div>
                                             <div className="text-[16px] font-semibold flex place-content-between">
-                                                <h1 onChange={(e) => setCheckInDate(e.target.value)}>{items.checkInDate}</h1>
-                                                <h1 onChange={(e) => setCheckOutDate(e.target.value)}>{items.checkOutDate}</h1>
+                                                <h1>{items.checkInDate}</h1>
+                                                <h1>{items.checkOutDate}</h1>
                                             </div>
                                             <div className="pb-1">
                                                 <h1>{items.occupancy}</h1>
