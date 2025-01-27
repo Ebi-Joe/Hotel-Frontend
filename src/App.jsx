@@ -39,6 +39,7 @@ import Fpassword from './components/pages/Fpassword';
 import ResetPassword from './components/pages/ResetPassword';
 import Verification from './components/pages/Verification';
 import ThankYou from './components/pages/ThankYou';
+import Delete from './components/pages/Delete';
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -59,6 +60,10 @@ function App() {
         <HotelProvider>
           <Router>
           <Routes>
+            <Route path="/delete" element={<>
+              <Delete/>
+            </>}/>
+
             <Route path='/forgot' element={<>
               <ForgotPassword/>
             </>}/>  

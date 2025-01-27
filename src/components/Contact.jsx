@@ -38,7 +38,7 @@ function Contact() {
                     <div className='address flex justify-between'>
                         <h1 className='font-bold '>Email:</h1>
                         <button onClick={handleEmailClick}>
-                            ebijoe911@gmail.com
+                            supporthotel@gmail.com
                         </button>
                     </div>
 

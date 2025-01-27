@@ -53,7 +53,7 @@ function BookingPage() {
         setLoading(true); // Set loading state
     
         try {
-            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/booking", { // Update with your backend URL
+            const res = await fetch("https://hotel-backend-itqc.onrender.com/api/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

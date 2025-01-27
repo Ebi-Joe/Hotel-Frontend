@@ -82,8 +82,7 @@ export const HotelProvider = ({ children }) => {
                     }
                 })
                 const data = await response.json()
-                setUser(data)    
-                           
+                setUser(data)                               
             } catch (error) {
                 console.log(error)
             }finally{
