@@ -44,6 +44,7 @@ function BookingPage() {
         const totalDays = e.target.elements.totalDays.value;
     
         if (!firstName || !lastName || !phone || !email || !currency || !roomType || !roomName || !rooms || !CheckInDate || !CheckOutDate || !amount || !totalDays) {
+            console.log({ firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckOutDate, amount, totalDays});            
             setError("Please Fill In All Fields.");
             return; // Prevent further execution
         }
@@ -94,16 +95,16 @@ function BookingPage() {
                         <h1 className='text-3xl font-semibold'>Contact Info</h1>
                         <div className="">
                             <div className="m-1">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" placeholder='First Name *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='firstName' type="text" placeholder='First Name *' required/>
                             </div>
                             <div className="m-1 my-4">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" placeholder='Last Name *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='lastName' type="text" placeholder='Last Name *' required/>
                             </div>
                             <div className="m-1 my-4">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="number" placeholder='Phone Number *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='phone' type="number" placeholder='Phone Number *' required/>
                             </div>
                             <div className="m-1">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' type="text" placeholder='Email Address *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='email' type="text" placeholder='Email Address *' required/>
                                 <label htmlFor="" className='text-xs font-semibold'>This is the email we will send your confirmation to*</label>
                             </div>
                         </div>
@@ -121,55 +122,55 @@ function BookingPage() {
                         {bookings.length === 0 ? (
                             <p className='font-bold text-2xl text-red-500 uppercase text-center pt-8'>No bookings yet!!....</p>
                             ) : (
-                                bookings.map((items, index) => (
-                                    <div key={index} className="md:w-[40vw] lg:w-[30vw] h-fit border-[1px] p-4 my-2">
-                                        <div className="">
-                                            <h1 className='text-2xl py-2 font-semibold'>Your Booking List: 1 Item</h1>
-                                            <h1 className='text-lg font-medium'>Total USD {items.totalPrice}.00</h1>
-                                            <h1 className='py-1.5'>Including taxes and fees</h1>
+                            bookings.map((items, index) => (
+                                <div key={index} className="md:w-[40vw] lg:w-[30vw] h-fit border-[1px] p-4 my-2">
+                                    <div className="">
+                                        <h1 className='text-2xl py-2 font-semibold'>Your Booking List: 1 Item</h1>
+                                        <h1 className='text-lg font-medium'>Total USD {items.totalPrice}.00</h1>
+                                        <h1 className='py-1.5'>Including taxes and fees</h1>
+                                    </div>
+                                    <h1 className='hidden'>{items.roomType}</h1>
+                                    <div className="border-[1.5px] border-[#737373] p-3 px-4 my-2">
+                                        <div className="flex place-content-between text-[16px] font-medium py-1">
+                                            <h1 className='border-b-[1.4px] border-[#171717]'>{items.roomName}</h1>
+                                            <h1>USD {items.price}.00</h1>
                                         </div>
-                                        <h1 className='hidden'>{items.roomType}</h1>
-                                        <div className="border-[1.5px] border-[#737373] p-3 px-4 my-2">
-                                            <div className="flex place-content-between text-[16px] font-medium py-1">
-                                                <h1 className='border-b-[1.4px] border-[#171717]'>{items.roomName}</h1>
-                                                <h1>USD {items.price}.00</h1>
-                                            </div>
-                                            <div className="text-[16px] font-semibold flex place-content-between">
-                                                <h1>Best Available Rate</h1>
-                                                <h1>USD {items.prices}.00</h1>
-                                            </div>  
-                                            <div className="text-[16px]">
-                                                <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline'>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' onChange={(e) => setRooms(e.target.value)}>{items.numberOfRooms}</span> Rooms</h1>
-                                            </div>
-                                            <div className="text-[16px] py-1.5 flex place-content-between">
-                                                <h1>Taxes and Fees</h1>
-                                                <h1 className='font-semibold'>USD {items.tax}.00</h1>
-                                            </div>
-                                            <div className="text-[16px] flex place-content-between">
-                                                <h1>CheckIn Date</h1>
-                                                <h1>CheckOut Date</h1>
-                                            </div>
-                                            <div className="text-[16px] font-semibold flex place-content-between">
-                                                <h1>{items.checkInDate}</h1>
-                                                <h1>{items.checkOutDate}</h1>
-                                            </div>
-                                            <div className="pb-1">
-                                                <h1>{items.occupancy}</h1>
-                                            </div>
+                                        <div className="text-[16px] font-semibold flex place-content-between">
+                                            <h1>Best Available Rate</h1>
+                                            <h1>USD {items.prices}.00</h1>
+                                        </div>  
+                                        <div className="text-[16px]">
+                                            <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline'>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' onChange={(e) => setRooms(e.target.value)}>{items.numberOfRooms}</span> Rooms</h1>
                                         </div>
-                                        <div className="">
-                                            <div className="flex text-xl font-bold place-content-between">
-                                                <h1>Total</h1>
-                                                <h1>USD {items.totalPrice}.00</h1>
-                                            </div>
-                                            <div className="">
-                                                <h1>Including Taxes and Fees</h1>
-                                            </div>
-                                            <div className="">
-                                                <MdAutoDelete onClick={()=>{deleteHandler(items._id)}} className='text-3xl hover:cursor-pointer'/>
-                                            </div>
+                                        <div className="text-[16px] py-1.5 flex place-content-between">
+                                            <h1>Taxes and Fees</h1>
+                                            <h1 className='font-semibold'>USD {items.tax}.00</h1>
+                                        </div>
+                                        <div className="text-[16px] flex place-content-between">
+                                            <h1>CheckIn Date</h1>
+                                            <h1>CheckOut Date</h1>
+                                        </div>
+                                        <div className="text-[16px] font-semibold flex place-content-between">
+                                            <h1>{items.checkInDate}</h1>
+                                            <h1>{items.checkOutDate}</h1>
+                                        </div>
+                                        <div className="pb-1">
+                                            <h1>{items.occupancy}</h1>
                                         </div>
                                     </div>
+                                    <div className="">
+                                        <div className="flex text-xl font-bold place-content-between">
+                                            <h1>Total</h1>
+                                            <h1>USD {items.totalPrice}.00</h1>
+                                        </div>
+                                        <div className="">
+                                            <h1>Including Taxes and Fees</h1>
+                                        </div>
+                                        <div className="">
+                                            <MdAutoDelete onClick={()=>{deleteHandler(items._id)}} className='text-3xl hover:cursor-pointer'/>
+                                        </div>
+                                    </div>
+                                </div>
                             ))
                         )}
                     </div>
@@ -211,7 +212,7 @@ function BookingPage() {
                 </div>
             </div>
             <div className="btn text-center m-8">
-                <button disabled={loading} className='bg-[#6cd234] font-semibold p-3 px-6 rounded'>{loading ? "COnfirming" : "Confirm Booking"}</button>
+                <button disabled={loading} className='bg-[#6cd234] font-semibold p-3 px-6 rounded'>{loading ? "Confirming" : "Confirm Booking"}</button>
             </div>
         </div>
         {
