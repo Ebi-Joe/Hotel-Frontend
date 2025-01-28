@@ -44,14 +44,14 @@ function BookingPage() {
         const totalDays = e.target.elements.totalDays.value;
     
         if (!firstName || !lastName || !phone || !email || !currency || !roomType || !roomName || !rooms || !CheckInDate || !CheckOutDate || !amount || !totalDays) {
-            console.log({ firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckOutDate, amount, totalDays});            
+            console.log(firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckOutDate, amount, totalDays);            
             setError("Please Fill In All Fields.");
-            return; // Prevent further execution
+            return;
         }
     
         setError('');
         setGood('');
-        setLoading(true); // Set loading state
+        setLoading(true);
     
         try {
             const res = await fetch("https://hotel-backend-itqc.onrender.com/api/booking", {
@@ -65,7 +65,7 @@ function BookingPage() {
             const data = await res.json();
     
             if (res.ok) {
-                window.location.href = data.link; // Redirect to payment link
+                window.location.href = data.link;
             } else {
                 setError(data.message || "An error occurred");
             }
@@ -73,7 +73,7 @@ function BookingPage() {
             console.error("Error during payment:", error);
             setError("An error occurred while processing your request.");
         } finally {
-            setLoading(false); // Reset loading state
+            setLoading(false); 
         }
     };
   return (
