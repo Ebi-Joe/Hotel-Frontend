@@ -29,6 +29,7 @@ function BookingPage() {
 
     const handlePayment = async (e) => {
         e.preventDefault();
+        console.log("Form elements:", e.target.elements); 
     
         const firstName = e.target.elements.firstName.value;
         const lastName = e.target.elements.lastName.value;
@@ -119,6 +120,21 @@ function BookingPage() {
                                 <IoLogoPaypal className='text-blue-700' />
                                 <SiAmericanexpress className='text-slate-500' />
                             </div>
+                            {bookings.length === 0 ? (
+                                <p className='hidden font-bold text-2xl text-red-500 uppercase text-center pt-8'>No bookings yet!!....</p>
+                                ) : (
+                                bookings.map((items, index) => (
+                                    <div key={index} >
+                                        <textarea className='hidden' name="amount" id="">{items.totalPrice}</textarea>
+                                        <textarea className='hidden' name="roomType" id="">{items.roomType}</textarea>
+                                        <textarea className='hidden' name="roomName" id="">{items.roomName}</textarea>
+                                        <textarea className='hidden' name="rooms" id="">{items.numberOfRooms}</textarea>
+                                        <textarea className='hidden' name="totalDays" id="">{items.days}</textarea>
+                                        <textarea className='hidden' name="CheckInDate" id="">{items.checkInDate}</textarea>
+                                        <textarea className='hidden' name="CheckOutDate" id="">{items.checkOutDate}</textarea>
+                                    </div>  
+                                ))
+                            )}
                         </div>
                     </div>
                     <div className="grid order-first md:order-none">
