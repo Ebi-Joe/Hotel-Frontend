@@ -103,6 +103,9 @@ function BookingPage() {
                             <div className="m-1 my-4">
                                 <input className='border-2 p-2 w-full outline-[#6cd234]' name='phone' type="number" placeholder='Phone Number *' required/>
                             </div>
+                            <div className="m-1 my-4">
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='currency' type="text" placeholder='Currency *' required/>
+                            </div>
                             <div className="m-1">
                                 <input className='border-2 p-2 w-full outline-[#6cd234]' name='email' type="text" placeholder='Email Address *' required/>
                                 <label htmlFor="" className='text-xs font-semibold'>This is the email we will send your confirmation to*</label>
@@ -175,45 +178,45 @@ function BookingPage() {
                         )}
                     </div>
                 </div>
+                <div className="policies border-[1px] my-2 p-3 lg:w-[50vw]">
+                    <h1 className='text-3xl py-2 font-bold'>Policies:</h1>
+                    <div className="py-2">
+                        <div className="flex">
+                            <div className="px-4">
+                                <h1 className='font-bold text-xl'>Check-In</h1>
+                                <h1>After 2:00 pm</h1>
+                            </div>
+                            <div className="px-4">
+                                <h1 className='font-bold text-xl'>Check-Out</h1>
+                                <h1>Before 12:00 pm</h1>
+                            </div>
+                        </div>
+                        <div className="p-4">
+                            <div className="py-1">
+                                <h1 className='font-semibold'>Guarantee Policy</h1>
+                                <h1>Standard Guarantee Policy - please take note of the hotel's terms & conditions for payment arrangements.</h1>
+                            </div>
+                            <div className="py-1">
+                                <h1 className='font-semibold'>Cancel Policy</h1>
+                                <h1>Reservations can be cancelled for free before 4pm on the day of arrival.</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="acknowledge border-[1px] p-5 lg:w-[50vw]">
+                    <h1 className='text-2xl font-bold py-1'>Acknowledgement</h1>
+                    <h1 className='font-semibold py-1'>By completing this booking, I agree with the Booking Conditions</h1>
+                    <div className="flex font-semibold text-[15px] py-2">
+                        <form action="">
+                            <input type="checkbox" name="" id="" required/>
+                            <label htmlFor="" className='px-1'>* I agree with the privacy terms.</label>
+                        </form>
+                    </div>
+                </div>
+                <div className="btn text-center m-8">
+                    <button disabled={loading} className='bg-[#6cd234] font-semibold p-3 px-6 rounded'>{loading ? "Confirming" : "Confirm Booking"}</button>
+                </div>
             </form>
-            <div className="policies border-[1px] my-2 p-3 lg:w-[50vw]">
-                <h1 className='text-3xl py-2 font-bold'>Policies:</h1>
-                <div className="py-2">
-                    <div className="flex">
-                        <div className="px-4">
-                            <h1 className='font-bold text-xl'>Check-In</h1>
-                            <h1>After 2:00 pm</h1>
-                        </div>
-                        <div className="px-4">
-                            <h1 className='font-bold text-xl'>Check-Out</h1>
-                            <h1>Before 12:00 pm</h1>
-                        </div>
-                    </div>
-                    <div className="p-4">
-                        <div className="py-1">
-                            <h1 className='font-semibold'>Guarantee Policy</h1>
-                            <h1>Standard Guarantee Policy - please take note of the hotel's terms & conditions for payment arrangements.</h1>
-                        </div>
-                        <div className="py-1">
-                            <h1 className='font-semibold'>Cancel Policy</h1>
-                            <h1>Reservations can be cancelled for free before 4pm on the day of arrival.</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="acknowledge border-[1px] p-5 lg:w-[50vw]">
-                <h1 className='text-2xl font-bold py-1'>Acknowledgement</h1>
-                <h1 className='font-semibold py-1'>By completing this booking, I agree with the Booking Conditions</h1>
-                <div className="flex font-semibold text-[15px] py-2">
-                    <form action="">
-                        <input type="checkbox" name="" id="" required/>
-                        <label htmlFor="" className='px-1'>* I agree with the privacy terms.</label>
-                    </form>
-                </div>
-            </div>
-            <div className="btn text-center m-8">
-                <button disabled={loading} className='bg-[#6cd234] font-semibold p-3 px-6 rounded'>{loading ? "Confirming" : "Confirm Booking"}</button>
-            </div>
         </div>
         {
             open &&
@@ -221,34 +224,28 @@ function BookingPage() {
                 <div className="group select-none flex flex-col p-4 relative items-center justify-center bg-gray-800 border border-gray-800 shadow-lg rounded-2xl">
                 <div className="">
                     <div className="text-center p-3 flex-auto justify-center">
-                    <svg
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        className="group-hover:animate-bounce w-12 h-12 flex items-center text-gray-600 fill-red-500 mx-auto"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                        clipRule="evenodd"
-                        d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                        fillRule="evenodd"
-                        ></path>
-                    </svg>
-                    <h2 className="text-xl font-bold py-4 text-gray-200">Are You Sure You Want To Proceed?</h2>
-                    <p className="font-bold text-sm text-gray-500 px-2">This Action Delete's Room From The Booking List, And Cannot Be Undone!!!!</p>
+                        <svg
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            className="group-hover:animate-bounce w-12 h-12 flex items-center text-gray-600 fill-red-500 mx-auto"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                            clipRule="evenodd"
+                            d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                            fillRule="evenodd"
+                            ></path>
+                        </svg>
+                        <h2 className="text-xl font-bold py-4 text-gray-200">Are You Sure You Want To Proceed?</h2>
+                        <p className="font-bold text-sm text-gray-500 px-2">This Action Delete's Room From The Booking List, And Cannot Be Undone!!!!</p>
                     </div>
                     <div className="p-2 mt-2 text-center space-x-1 md:block">
-                    <button
-                        className="mb-2 md:mb-0 bg-gray-700 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border-2 border-gray-600 hover:border-gray-700 text-gray-300 rounded-full hover:shadow-lg hover:bg-gray-800 transition ease-in duration-300"
-                        onClick={()=>{{setOpen(false)}}}
-                   >
-                        Cancel
-                    </button>
-                    <button
-                        className="bg-red-500 hover:bg-transparent px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 hover:border-red-500 text-white hover:text-red-500 rounded-full transition ease-in duration-300"
-                        onClick={deleteClick}
-                    >
-                        Confirm
-                    </button>
+                        <button className="mb-2 md:mb-0 bg-gray-700 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border-2 border-gray-600 hover:border-gray-700 text-gray-300 rounded-full hover:shadow-lg hover:bg-gray-800 transition ease-in duration-300" onClick={()=>{{setOpen(false)}}}>
+                            Cancel
+                        </button>
+                        <button className="bg-red-500 hover:bg-transparent px-5 ml-4 py-2 text-sm shadow-sm hover:shadow-lg font-medium tracking-wider border-2 border-red-500 hover:border-red-500 text-white hover:text-red-500 rounded-full transition ease-in duration-300" onClick={deleteClick}>
+                            Confirm
+                        </button>
                     </div>
                 </div>
                 </div>
