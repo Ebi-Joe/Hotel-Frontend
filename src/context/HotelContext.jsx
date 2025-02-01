@@ -12,6 +12,7 @@ export const HotelProvider = ({ children }) => {
     const [count, setCount] = useState(null)
     const [no, setNo] = useState(null)
     const [order, setOrder] = useState([])
+    const [booking, setBooking] = useState(null)
     const {alertInfo, showHide} = useAlert();
     const [state, dispatch] = useContext(AuthContext);
     const [loading, setLoading] = useState(true)
@@ -120,6 +121,28 @@ export const HotelProvider = ({ children }) => {
             console.log(error)
         }
     }
+    
+    const createBooking = async (bookingId, transaction_id) => {
+        try {
+            const response = await fetch("https://hotel-backend-itqc.onrender.com/api/payment/verify", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "auth-token": `${localStorage.getItem("auth-token")}`
+                },
+                body: JSON.stringify({ bookingId, transaction_id })
+            })
+            const data = await response.json();
+            if (response.ok) {
+                setBooking(data.booking)
+                console.log(data.booking);
+            } else {
+
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     // const deleteuser = async (id) => {
     //     try {
@@ -222,11 +245,13 @@ export const HotelProvider = ({ children }) => {
             isAuthenticated,
             showHide,
             deleteConcierge,
+            createBooking,
             editConcierge,
             editConciergeHandler,
             updateConcierge,
             addNewOrder,
-            deleteOrder
+            deleteOrder,
+            booking
         }}>
             {children}
         </HotelContext.Provider>
