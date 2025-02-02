@@ -15,7 +15,7 @@ function RoomDetails() {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [checkInDate, setCheckInDate] = useState('')
     const [checkOutDate, setCheckOutDate] = useState('')
-    const [numberOfRooms, setNumberOfRooms] = useState(1);
+    const [rooms, setNumberOfRooms] = useState(1);
     const [days, setDays] = useState()
     const [selectedImages, setSelectedImages] = useState(roomItems?.images?.[0].img)
     const [error, setError] = useState('')
@@ -37,7 +37,7 @@ function RoomDetails() {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!checkInDate || !checkOutDate || !numberOfRooms) {
+        if (!checkInDate || !checkOutDate || !rooms) {
             setError('Please fill in all fields.');
             return;
         }
@@ -55,7 +55,7 @@ function RoomDetails() {
         }
 
         const taxRate = 0.075;
-        const prices = roomItems.price * days * numberOfRooms;
+        const prices = roomItems.price * days * rooms;
         const tax = prices * taxRate;
         const totalPrice = prices + tax;
         setError('')
@@ -67,7 +67,7 @@ function RoomDetails() {
             occupancy: roomItems.occupancy,
             checkInDate,
             checkOutDate,
-            numberOfRooms,
+            rooms,
             days: days,
             tax: tax,
             prices: prices,
@@ -158,7 +158,7 @@ function RoomDetails() {
                             <input type="date" value={checkOutDate} onChange={(e) => setCheckOutDate(e.target.value)} name="" id="" className='w-full bg-black text-white border-[1px] border-gray-600 p-2'/>
                         </div>
                         <div className="m-4">
-                            <select min="1" name="" value={numberOfRooms} onChange={(e) => setNumberOfRooms(e.target.value)} placeholder='Adult' id="" className='uppercase text-sm w-full bg-black text-white border-[1px] border-gray-600 p-2'>
+                            <select min="1" name="" value={rooms} onChange={(e) => setNumberOfRooms(e.target.value)} placeholder='Adult' id="" className='uppercase text-sm w-full bg-black text-white border-[1px] border-gray-600 p-2'>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

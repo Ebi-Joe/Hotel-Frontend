@@ -128,7 +128,7 @@ function BookingPage() {
                                         <textarea className='hidden' name="amount" id="">{items.totalPrice}</textarea>
                                         <textarea className='hidden' name="roomType" id="">{items.roomType}</textarea>
                                         <textarea className='hidden' name="roomName" id="">{items.roomName}</textarea>
-                                        <textarea className='hidden' name="rooms" id="">{items.numberOfRooms}</textarea>
+                                        <textarea className='hidden' name="rooms" id="">{items.rooms}</textarea>
                                         <textarea className='hidden' name="totalDays" id="">{items.days}</textarea>
                                         <textarea className='hidden' name="CheckInDate" id="">{items.checkInDate}</textarea>
                                         <textarea className='hidden' name="CheckOutDate" id="">{items.checkOutDate}</textarea>
@@ -159,7 +159,7 @@ function BookingPage() {
                                             <h1>USD {items.prices}.00</h1>
                                         </div>  
                                         <div className="text-[16px]">
-                                            <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline'>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' onChange={(e) => setRooms(e.target.value)}>{items.numberOfRooms}</span> Rooms</h1>
+                                            <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline'>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' >{items.rooms}</span> Rooms</h1>
                                         </div>
                                         <div className="text-[16px] py-1.5 flex place-content-between">
                                             <h1>Taxes and Fees</h1>
