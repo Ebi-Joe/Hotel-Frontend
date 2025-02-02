@@ -25,6 +25,7 @@ function BookingPage() {
         const updatedBookings = bookings.filter(item => item._id !== deleteId)
         localStorage.setItem("Booking Info", JSON.stringify(updatedBookings));
         setOpen(false)
+        setGood('Booking Deleted Successfully');
     }
 
     const handlePayment = async (e) => {
@@ -125,13 +126,13 @@ function BookingPage() {
                                 ) : (
                                 bookings.map((items, index) => (
                                     <div key={index} >
-                                        <textarea className='hidden' name="amount" id="">{items.totalPrice}</textarea>
-                                        <textarea className='hidden' name="roomType" id="">{items.roomType}</textarea>
-                                        <textarea className='hidden' name="roomName" id="">{items.roomName}</textarea>
-                                        <textarea className='hidden' name="rooms" id="">{items.rooms}</textarea>
-                                        <textarea className='hidden' name="totalDays" id="">{items.days}</textarea>
-                                        <textarea className='hidden' name="CheckInDate" id="">{items.checkInDate}</textarea>
-                                        <textarea className='hidden' name="CheckOutDate" id="">{items.checkOutDate}</textarea>
+                                        <input type="hidden" name='amount' value={items.totalPrice} />
+                                        <input type="hidden" name='roomType' value={items.roomType} />
+                                        <input type="hidden" name='roomName' value={items.roomName} />
+                                        <input type="hidden" name='rooms' value={items.rooms} />
+                                        <input type="hidden" name='totalDays' value={items.days} />
+                                        <input type="hidden" name='CheckInDate' value={items.checkInDate} />
+                                        <input type="hidden" name='CheckOutDate' value={items.checkOutDate} />
                                     </div>  
                                 ))
                             )}
