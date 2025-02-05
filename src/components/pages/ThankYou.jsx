@@ -18,7 +18,7 @@ function ThankYou() {
     if( transaction_id && tx_ref){
       createBooking(tx_ref, transaction_id)
     }
-  })
+  }, [transaction_id, tx_ref, createBooking])
 
   return (
     <>
