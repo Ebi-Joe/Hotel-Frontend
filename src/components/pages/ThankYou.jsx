@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import HotelContext from '../../context/HotelContext'
@@ -9,6 +9,7 @@ function ThankYou() {
   const [ searchParams ] = useSearchParams();
   const tx_ref = searchParams.get("tx_ref");
   const transaction_id = searchParams.get("transaction_id");
+  const [isProcessed, setIsProcessed] = useState(false);
 
   if (!isAuthenticated) {
     return <Navigate to='/login'/>
@@ -16,9 +17,10 @@ function ThankYou() {
 
   useEffect(() => {
     if( transaction_id && tx_ref){
+      setIsProcessed(true);
       createBooking(tx_ref, transaction_id)
     }
-  }, [transaction_id, tx_ref, createBooking])
+  }, [transaction_id, tx_ref, createBooking, isProcessed])
 
   return (
     <>
