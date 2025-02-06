@@ -15,11 +15,14 @@ function ThankYou() {
     return <Navigate to='/login'/>
   }
 
+  if (window.location.reload()) {
+    return <Navigate to='/'/>
+  }
+
   useEffect(() => {
-    // Only make the request if the transaction_id and tx_ref exist and the booking has not been processed
     if (transaction_id && tx_ref && !isProcessed) {
       createBooking(tx_ref, transaction_id);
-      setIsProcessed(true);  // Mark as processed to prevent the effect from running again
+      setIsProcessed(true);  //prevent the effect from running again
     }
   }, [transaction_id, tx_ref, createBooking, isProcessed]);
 
