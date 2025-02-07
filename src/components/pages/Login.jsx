@@ -38,11 +38,11 @@ function Login() {
           if (redirectPath && redirectPath !== '/login') {
             navigate(redirectPath);
             window.location.reload()
-          } else if (data.user.role === 'Guest') {
-            navigate('/');
+          } else if (data.user.role === 'Admin') {
+            navigate('/Admin');
             window.location.reload()
           } else {
-            navigate('/admin');
+            navigate('/');
             window.location.reload()
           }
         }, 1000);
