@@ -1,166 +1,144 @@
-import React, { useState, useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import AuthContext from '../../context/AuthContext';
+import React, { useState, useContext } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import AuthContext from '../../context/AuthContext'
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [state, dispatch] = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [good, setGood] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [state, dispatch] = useContext(AuthContext)
+  const navigate  = useNavigate()
+  const [ loading, setLoading ] = useState(false)
+  const [error, setError] = useState('')
+  const [good, setGood] = useState('')
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const redirectPath = params.get('redirect') || '/';
+  const redirectPath = params.get('redirect') || '/'
 
   const SubmitHandler = async (e) => {
-    e.preventDefault();
-    setError('');
-    setGood('');
-    setLoading(true);
+    e.preventDefault()
+    setError('')
+    setGood('')
+    setLoading(true)
 
     try {
-      const res = await fetch('https://hotel-backend-itqc.onrender.com/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const res = await fetch('https://hotel-backend-itqc.onrender.com/api/login',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
         },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await res.json();
-
+        body:JSON.stringify({email,password})
+      })
+      const data = await res.json()
+      
       if (res.ok) {
-        setGood('User Logged In Successfully');
-        localStorage.setItem('auth-token', data.token);
-        dispatch({ type: 'LOGIN', payload: data });
+        setGood("User Logged In Successfully")  
+        localStorage.setItem('auth-token',data.token)
+        dispatch({type:'LOGIN',payload:data})
         setTimeout(() => {
           if (redirectPath && redirectPath !== '/login') {
             navigate(redirectPath);
             window.location.reload()
-          } else if (data.user.role === 'Admin') {
-            navigate('/Admin');
-            window.location.reload()
+          } else if (data.user.role === 'Guest') {
+              navigate('/');
+              window.location.reload()
           } else {
-            navigate('/');
-            window.location.reload()
+              navigate('/admin');
+              window.location.reload()
           }
-        }, 1000);
-        setEmail('');
-        setPassword('');
+        }, 2000);
+        setEmail("")
+        setPassword('') 
       } else {
         if (data.message) {
-          if (
-            data.message ===
-            'User  account is not verified. A verification email has been sent.'
-          ) {
-            setGood('A verification email has been sent. Please check your inbox.');
+          if (data.message === "User  account is not verified. A verification email has been sent.") {
+              setGood("A verification email has been sent. Please check your inbox.");
           } else {
-            setError(data.message);
+              setError(data.message);
           }
-        } else {
-          setError('An error occurred. Please try again.');
-        }
+      } else {
+          // Handle other responses
+          setError("An error occurred. Please try again.");
+      }
       }
     } catch (error) {
-      console.log(error);
-      setError('An unexpected error occurred.');
+      console.log(error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
-
+  }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      {error && (
-        <div className="fixed top-4 bg-red-500 text-white text-center font-bold text-lg px-4 py-2 rounded-lg shadow-md">
-          {error}
+    <>
+        <div className="flex items-center justify-center">
+            {error && <div className="error-message fixed text-white bg-red-500 text-center font-bold text-xl m-4 p-2 mt-[10em] rounded-lg">{error}</div>}
         </div>
-      )}
-      {good && (
-        <div className="fixed top-4 bg-green-500 text-white text-center font-bold text-lg px-4 py-2 rounded-lg shadow-md">
-          {good}
+        <div className="flex items-center justify-center">
+            {good && <div className="good-message fixed text-white bg-green-500 text-center font-bold text-xl m-4 p-2 mt-[10em] rounded-lg">{good}</div>}
         </div>
-      )}
-      <div className="flex bg-white shadow-lg rounded-xl overflow-hidden max-w-4xl w-full">
-        <div className="w-full md:w-1/2 p-8">
-          <h1 className="text-3xl font-bold text-center mb-4">Login to Hotel</h1>
-          <p className="text-center text-gray-600 mb-8">
-            Log in to get personalized content recommendations, destinations, and quick booking.
-          </p>
-
-          <form onSubmit={SubmitHandler} className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Email Address</label>
-              <input
-                type="email"
-                className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+      <div className="login flex py-24">
+        <div className="sign bg-[whitesmoke] mx-8 md:mx-0 md:ml-[4em] lg:ml-[7.3em] md:w-[27.4vw] md:h-[96vh] rounded-l-xl">
+            <div className="one py-4">
+              <h1 className='text-center text-3xl font-[SuisseBPIntl,sans-serif]'>Login to Hotel</h1>
+              <h2 className='text-center text-[15px] px-8 py-8 text-[grey] font-[SuisseBPIntl,sans-serif]'>Log in to get personalized content recommendations, destinations and events you love and quick booking</h2>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">Password</label>
-              <input
-                type="password"
-                className="mt-1 block w-full border border-gray-300 rounded-lg p-2 focus:ring-blue-500 focus:border-blue-500"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
+            <div className="two">
+              <form onSubmit={SubmitHandler} action="">
+
+                <div className="form1 mx-8 px-1">
+                  <label htmlFor="">Your Email Address</label>
+                  <input className='border block p-2 rounded w-full' onChange={(e)=>{setEmail(e.target.value)}} type="text" placeholder='Email' required/>
+                </div>
+
+                <div className="form2 mx-8 pt-2 px-1">
+                  <label htmlFor="">Password</label>
+                  <input className='border block p-2 mt-2 rounded w-full' onChange={(e)=>{setPassword(e.target.value)}} type="password" name="" id="" placeholder='Password'/>
+                </div>
+
+                <div className="mx-8 text-sm font-semibold px-1 text-end">
+                  <Link to="/forgotPassword">
+                    <label htmlFor="" className='cursor-pointer text-red-600 hover:underline'>Forgot Password?</label>
+                  </Link>
+                </div>  
+
+                <div className="btn text-center py-2">
+                  <button disabled={loading} className='bg-[black] text-white font-bold text-[15px] px-4 p-2 rounded-full'>{loading ? "Logging In...." : "Login"}</button>
+                </div>
+
+              </form>
+
+              <div className="log py-6">
+                <h1 className='text-center text-[13px] font-semibold'>Not a member? <Link to='/signup' className='underline'>Sign up now</Link></h1>
+              </div>
+            </div>
+          </div>
+
+      <div className="nxt w-[54vw] h-[65vh] hidden md:block">
+          <div className="img">
+            <img src="/img/Hotel16.avif" alt="" className='w-[54vw] h-fit rounded-tr-xl'/>
+          </div>
+          <div className="txt bg-[lightyellow] h-fit rounded-br-xl flex">
+
+            <h3 className='font-bold text-2xl px-8 py-8'>Meet Luna <br /> Nueva <span className='font-semibold text-2xl'> our <br />new loyalty <br /> program</span></h3>
+            <div className="txt py-8 ">
+              <h3 className='py-3 text-sm font-semibold'>Sign up to Hotel and start benefiting from our membership (loyalty program)</h3>
+              <div className="list">
+                <ul className='grid grid-cols-2 text-[14px]'>
+                  <li>Complimentary Welcome Drink</li>
+                  <li>Authentic Local Experiences</li>
+                  <li>Free Wellness Activity</li>
+                  <li>Members Rates @ Hotel Retail Shops</li>
+                  <li>Access to Global Book Exchange</li>
+                  <li>Earn Tokens via Volunteering Activities</li>
+                </ul>
+              </div>
             </div>
 
-            <div className="text-right text-sm">
-              <Link to="/forgotPassword" className="text-blue-600 hover:underline">
-                Forgot Password?
-              </Link>
-            </div>
-
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-            >
-              {loading ? 'Logging In...' : 'Login'}
-            </button>
-          </form>
-
-          <div className="text-center mt-6 text-sm">
-            Not a member?{' '}
-            <Link to="/signup" className="text-blue-600 hover:underline">
-              Sign up now
-            </Link>
           </div>
         </div>
-
-        <div className="hidden md:block md:w-1/2 relative">
-          <img
-            src="/img/Hotel16.avif"
-            alt="Hotel"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute bottom-0 left-0 right-0 bg-yellow-100 p-6 rounded-t-xl shadow-md">
-            <h3 className="text-xl font-bold mb-2">Meet Luna Nueva</h3>
-            <p className="text-sm text-gray-700 mb-4">
-              Sign up to Hotel and start benefiting from our membership loyalty program.
-            </p>
-            <ul className="text-sm text-gray-600 space-y-1">
-              <li>Complimentary Welcome Drink</li>
-              <li>Authentic Local Experiences</li>
-              <li>Free Wellness Activity</li>
-              <li>Members Rates @ Hotel Retail Shops</li>
-              <li>Access to Global Book Exchange</li>
-              <li>Earn Tokens via Volunteering Activities</li>
-            </ul>
-          </div>
-        </div>
+        
       </div>
-    </div>
-  );
+    </>
+  )
 }
 
-export default Login;
+export default Login

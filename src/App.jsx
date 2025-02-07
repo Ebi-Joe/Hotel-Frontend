@@ -40,7 +40,6 @@ import ResetPassword from './components/pages/ResetPassword';
 import Verification from './components/pages/Verification';
 import ThankYou from './components/pages/ThankYou';
 import Delete from './components/pages/Delete';
-import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -159,81 +158,81 @@ function App() {
             </>}/>
 
             <Route path='/admin' element={
-                <ProtectedRoute role='admin'>
+                <>
                   <Dashboard />
-                </ProtectedRoute>
+                </>
             }/>
 
             <Route path='/guestorders' element={
-                <ProtectedRoute role='admin'>
+                <>
                   <GuestOrders/>
-                </ProtectedRoute>
+                </>
             }/>
 
             <Route path='/guestList' element={
-                <ProtectedRoute role='admin'>
+                <>
                   <GuestList/>
-                </ProtectedRoute>
+                </>
             }/>
 
             <Route path='/roomTypes' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <RoomType/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/room' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <Room/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/contacts' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <Contacts/>
-              </ProtectedRoute>
+              </>
             } />
 
             <Route path='/concierge' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <Concierge/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/review' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <Reviews/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/newConcierge' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <NewConcierge/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/newGuestOrders' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <NewGuestOrder/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/newGuest' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <NewGuest/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/newReview' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <NewReview/>  
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/newRoom' element={
-              <ProtectedRoute role='admin'>
+              <>
                 <NewRoom/>
-              </ProtectedRoute>
+              </>
             }/>
 
             <Route path='/unauthorized' element={<>
