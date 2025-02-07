@@ -26,9 +26,9 @@ function Header() {
           {isAuthenticated ? (<>
             <Link to='/'>
               <div className="logo flex px-5 font-bold text-lg md:text-2xl text-white hover:text-[#6dc234]">
-                  <i className="fa-solid fa-hotel pt-1 px-2"></i>
+                  <i className="fa-solid fa-user pt-1 px-2"></i>
                   {/* <h1>Hello {user && user.data.lastName}</h1> */}
-                  <h1 className="capitalize">Hello {loading ? ('...'):( user.data.lastName)}</h1>
+                  <h1 className="capitalize">Hello {loading ? <span className='animate-ping'>...</span>:( user.data.lastName)}</h1>
               </div>
             </Link>       
           </>) : (<>          

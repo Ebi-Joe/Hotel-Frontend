@@ -75,7 +75,7 @@ function newGuest() {
         <div className="flex items-center justify-center">
             {good && <div className="good-message fixed text-white bg-green-500 text-center font-bold text-xl m-4 p-2 mt-[10em] rounded-lg">{good}</div>}
         </div>
-        <div className="flex h-full bg-slate-200">
+        <div className="flex h-screen bg-slate-200">
             <AdminSidebar/>
             <div className="ml-[5em] md:ml-[17em] mt-16">
                 <div className="flex">

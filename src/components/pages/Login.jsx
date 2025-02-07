@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import AuthContext from '../../context/AuthContext'
 
 function Login() {
@@ -10,6 +10,9 @@ function Login() {
   const [ loading, setLoading ] = useState(false)
   const [error, setError] = useState('')
   const [good, setGood] = useState('')
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const redirectPath = params.get('redirect') || '/'
 
   const SubmitHandler = async (e) => {
     e.preventDefault()
@@ -32,7 +35,10 @@ function Login() {
         localStorage.setItem('auth-token',data.token)
         dispatch({type:'LOGIN',payload:data})
         setTimeout(() => {
-          if (data.user.role === 'Guest') {
+          if (redirectPath && redirectPath !== '/login') {
+            navigate(redirectPath);
+            window.location.reload()
+          } else if (data.user.role === 'Guest') {
               navigate('/');
               window.location.reload()
           } else {

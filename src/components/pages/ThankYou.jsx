@@ -15,28 +15,27 @@ function ThankYou() {
     return <Navigate to='/login'/>
   }
 
-  if (window.location.reload()) {
-    return <Navigate to='/'/>
-  }
-
   useEffect(() => {
     if (transaction_id && tx_ref && !isProcessed) {
       createBooking(tx_ref, transaction_id);
       setIsProcessed(true);  //prevent the effect from running again
     }
-  }, [transaction_id, tx_ref, createBooking, isProcessed]);
+  }, [transaction_id, tx_ref, createBooking, isProcessed] );
 
   return (
     <>
         <Header/>
-        <div className="thankyou max-w-xl mx-auto py-6 shadow-xl">
-            <div className="top bg-[silver] h-[35vh] text-center pt-6">
+        <div className="pt-24 pb-8">
+          <div className="thankyou max-w-xl mx-auto shadow-xl">
+            <div className="top bg-[silver] h-[35vh] flex justify-center items-center text-center pt-6 rounded-t-xl">
                 <i className="fa-solid fa-circle-check text-[7em] p-2 text-[#02BF74] bg-[white] rounded-full"></i>
             </div>
             <div className="thank text-center h-[40vh]">
                 <i className="fa-solid fa-star text-4xl text-[gold] pt-6"></i>
                 <p className='text-[#02BF74] text-3xl'>Thank You! {booking?.firstName}</p>
                 <p className=''>Thank's for your patronage, we're expecting you soon</p>
+                <p className='font-semibold'>Your Booking Details:</p>
+                
                 <p className="pb-5">Your payment was processed <span className='text-[#02BF74]'>successfully</span></p>
 
                 <Link to="/">
@@ -52,6 +51,7 @@ function ThankYou() {
                 </Link>
 
             </div>
+          </div>
         </div>
         <Footer/>
     </>

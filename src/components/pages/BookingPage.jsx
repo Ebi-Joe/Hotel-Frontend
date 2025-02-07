@@ -6,6 +6,7 @@ import { IoLogoPaypal } from "react-icons/io5";
 import { SiAmericanexpress } from "react-icons/si";
 import { MdAutoDelete } from "react-icons/md";
 import Modal from '../shared/Modal';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 function BookingPage() {
     const [open, setOpen] = useState(false);
@@ -13,6 +14,9 @@ function BookingPage() {
     const [error, setError] = useState('');
     const [good, setGood] = useState();
     const [loading, setLoading] = useState(false);
+    const isAuthenticated = localStorage.getItem('auth-token');
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const bookingsData = JSON.parse(localStorage.getItem("Booking Info")) || [];
     const bookings = Array.isArray(bookingsData) ? bookingsData : [bookingsData];
@@ -30,7 +34,11 @@ function BookingPage() {
 
     const handlePayment = async (e) => {
         e.preventDefault();
-        console.log("Form elements:", e.target.elements); 
+        
+        if (!isAuthenticated) {
+            navigate(`/login?redirect=${location.pathname}`);
+            return;
+        }
     
         const firstName = e.target.elements.firstName.value;
         const lastName = e.target.elements.lastName.value;
