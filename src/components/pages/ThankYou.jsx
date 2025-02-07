@@ -31,11 +31,10 @@ function ThankYou() {
                 <i className="fa-solid fa-circle-check text-[7em] p-2 text-[#02BF74] bg-[white] rounded-full"></i>
             </div>
             <div className="thank text-center h-[40vh]">
-                <i className="fa-solid fa-star text-4xl text-[gold] pt-6"></i>
                 <p className='text-[#02BF74] text-3xl'>Thank You! {booking?.firstName}</p>
                 <p className=''>Thank's for your patronage, we're expecting you soon</p>
                 <p className='font-semibold'>Your Booking Details:</p>
-                
+
                 <p className="pb-5">Your payment was processed <span className='text-[#02BF74]'>successfully</span></p>
 
                 <Link to="/">
