@@ -127,23 +127,18 @@ function rooms() {
                     <h1 className='text-white m-4 text-lg'>SERVICES:</h1>
                     <div className="mx-4">
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Welcome Drink</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Television</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>King Beds</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Bike Rental</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>No Smoking</h1>
                       </div>
                     </div>
@@ -154,23 +149,18 @@ function rooms() {
                     <h1 className='text-white m-4 text-lg'>EXTRA SERVICES:</h1>
                     <div className="mx-4">
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>BreakFast</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Swimming Pool</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Car Rental</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Sea View</h1>
                       </div>
                       <div className="flex py-2">
-                        <input type="checkbox" name="" id="" />
                         <h1 className='text-white px-2'>Laundry</h1>
                       </div>
                     </div>
