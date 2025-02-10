@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link, useNavigate } from 'react-router-dom'
 import HotelContext from '../context/HotelContext';
 import useLocalStorage from '../hooks/useLocalStorage';
 import AuthContext from '../context/AuthContext';
@@ -109,7 +109,7 @@ function Header() {
                     {isAuthenticated ? (<>
                         <Link to='/userdashboard'>
                             <h1 className='px-2 py-6 text-white hover:text-[#6dc234]'> 
-                              <span className='px-1'>Account</span>
+                              <span className='px-1'>Account Center</span>
                             </h1>
                         </Link>
                       </>) : (<>

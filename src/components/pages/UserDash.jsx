@@ -1,21 +1,23 @@
 import React, { useContext } from 'react'
 import Header from '../Header'
-import HotelContext from '../../context/HotelContext'
-import { Link, useNavigate } from 'react-router-dom'
-import useLocalStorage from '../../hooks/useLocalStorage'
 import { MdVerified } from 'react-icons/md'
+import { Link, useNavigate } from 'react-router-dom'
+import HotelContext from '../../context/HotelContext'
+import useLocalStorage from '../../hooks/useLocalStorage'
+import AuthContext from '../../context/AuthContext'
 
 function UserDash() {
   const { user, loading } = useContext(HotelContext)
+  const [ state, dispatch ] = useContext(AuthContext)
   const { deleteItem } = useLocalStorage('auth-token')
   const navigate = useNavigate()
 
-  const logout = (e) => {
+  const logOut = (e) => {
     e.preventDefault()
-    dispatch({ type: 'setToken', payLoad: null })
-    deleteItem("auth-token")
-    navigate('/login')
-    localStorage.clear(); 
+    dispatch({ type: "setToken", payload: null })
+    deleteItem("auth-token")   
+    navigate("/login")
+    localStorage.clear();
   }
 
   return (
@@ -57,6 +59,9 @@ function UserDash() {
             <div className="flex py-1">
               <h1 className='font-semibold px-2 text-lg'>Date Joined:</h1>
               <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data.createdAt)}</h1>
+            </div>
+            <div className="" onClick={logOut}>
+              <button className='bg-[#6dc234] hover:bg-red-500 mx-4 p-2 px-6 rounded-lg font-semibold hover:scale-125 transition duration-700 ease-in-out'>LogOut</button>
             </div>
           </div>
         </div>
