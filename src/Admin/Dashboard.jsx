@@ -7,7 +7,7 @@ import HotelContext from '../context/HotelContext';
 
 function Dashboard() {
 
-    const { roomType, count, no } = useContext(HotelContext)
+    const { roomType, count, no, totalAmount } = useContext(HotelContext)
 
   return (
     <>
@@ -21,7 +21,7 @@ function Dashboard() {
                             <LuArrowUpDown />
                         </div>
                         <div className="txt px-6">
-                            <h1 className='text-3xl font-semibold'>$145,945</h1>
+                            <h1 className='text-3xl font-semibold'>${totalAmount}</h1>
                             <h1 className='text-sm text-gray-400 tracking-wide'>Total Incomes</h1>
                         </div>
                     </div>

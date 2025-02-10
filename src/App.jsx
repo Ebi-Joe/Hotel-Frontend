@@ -40,6 +40,7 @@ import ResetPassword from './components/pages/ResetPassword';
 import Verification from './components/pages/Verification';
 import ThankYou from './components/pages/ThankYou';
 import Delete from './components/pages/Delete';
+import UserDash from './components/pages/UserDash';
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -241,6 +242,10 @@ function App() {
 
             <Route path='/thankYou' element={<>
               <ThankYou/>
+            </>}/>
+
+            <Route path='/userdashboard' element={<>
+              <UserDash/>
             </>}/>
             
           </Routes>

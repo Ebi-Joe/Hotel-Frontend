@@ -11,6 +11,7 @@ export const HotelProvider = ({ children }) => {
     const [users, setUsers] = useState([]);
     const [count, setCount] = useState(null)
     const [no, setNo] = useState(null)
+    const [totalAmount, setTotalAmount] = useState(null)
     const [order, setOrder] = useState([])
     const [booking, setBooking] = useState(null)
     const {alertInfo, showHide} = useAlert();
@@ -96,7 +97,8 @@ export const HotelProvider = ({ children }) => {
         try {
             const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-Bookings")
             const data = await response.json()
-            setOrder(data)        
+            setOrder(data) 
+            setTotalAmount(data.totalAmount)       
         } catch (error) {
             console.log(error)
         }
@@ -232,6 +234,7 @@ export const HotelProvider = ({ children }) => {
         <HotelContext.Provider value={{
             room,
             no,
+            totalAmount,
             roomType,
             user,
             users,
