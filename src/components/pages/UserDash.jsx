@@ -1,74 +1,110 @@
-import React, { useContext } from 'react'
-import Header from '../Header'
-import { MdVerified } from 'react-icons/md'
-import { Link, useNavigate } from 'react-router-dom'
-import HotelContext from '../../context/HotelContext'
-import useLocalStorage from '../../hooks/useLocalStorage'
-import AuthContext from '../../context/AuthContext'
+import React, { useContext, useEffect, useState } from 'react';
+import Header from '../Header';
+import { MdVerified } from 'react-icons/md';
+import { Link, useNavigate } from 'react-router-dom';
+import HotelContext from '../../context/HotelContext';
+import useLocalStorage from '../../hooks/useLocalStorage';
+import AuthContext from '../../context/AuthContext';
 
 function UserDash() {
-  const { user, loading } = useContext(HotelContext)
-  const [ state, dispatch ] = useContext(AuthContext)
-  const { deleteItem } = useLocalStorage('auth-token')
-  const navigate = useNavigate()
+  const { user, loading } = useContext(HotelContext);
+  const [state, dispatch] = useContext(AuthContext);
+  const { deleteItem } = useLocalStorage('auth-token');
+  const navigate = useNavigate();
 
+  const [bookings, setBookings] = useState([]);  // State to store bookings
+  const [bookingLoading, setBookingLoading] = useState(true);
+
+  // Function to log out
   const logOut = (e) => {
-    e.preventDefault()
-    dispatch({ type: "setToken", payload: null })
-    deleteItem("auth-token")   
-    navigate("/login")
+    e.preventDefault();
+    dispatch({ type: "setToken", payload: null });
+    deleteItem("auth-token");
+    navigate("/login");
     localStorage.clear();
-  }
+  };
+
+  // Fetch user bookings
+  useEffect(() => {
+    if (user && user.data && user.data.email) {
+      fetchBookings(user.data.email);
+    }
+  }, [user]);
+
+  const fetchBookings = async (email) => {
+    try {
+      const response = await fetch('https://hotel-backend-itqc.onrender.com/api/getUserBookings', {  // Replace with your API URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setBookings(data.bookings);
+      } else {
+        console.error(data.message);
+      }
+    } catch (error) {
+      console.error("Error fetching bookings:", error.message);
+    } finally {
+      setBookingLoading(false);
+    }
+  };
 
   return (
     <>
-        <Header/>
-        <div className="pt-20 rounded-2xl shadow-2xl p-5 md:p-20 mx-3">
-          <div className="flex justify-between">
-            <h1 className='font-semibold font-serif text-2xl p-2'>Your Details</h1>
-            <Link to='/'>
-              <h1 className='font-semibold bg-[#6dc234] p-2 px-5 w-fit rounded-lg'>Go To Home</h1>
-            </Link>
-          </div>
-          <hr className='mt-6' />
-          <div className="mt-7">
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>User Id:</h1>
-              <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data._id)}</h1>
-            </div>
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>FirstName:</h1>
-              <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data.firstName)}</h1>
-            </div>
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>LastName:</h1>
-              <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data.lastName)}</h1>
-            </div>
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>Email:</h1>
-              <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data.email)}</h1>
-            </div>
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>Role:</h1>
-              <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data.role)}</h1>
-            </div>
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>Verification Status:</h1>
-              <h1 className='p-0.5 flex'><MdVerified className='text-[#6dc234] text-2xl' /></h1>
-            </div>
-            <div className="flex py-1">
-              <h1 className='font-semibold px-2 text-lg'>Date Joined:</h1>
-              <h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span>:( user.data.createdAt)}</h1>
-            </div>
-            <div className="" onClick={logOut}>
-              <button className='bg-[#6dc234] hover:bg-red-500 mx-4 p-2 px-6 rounded-lg font-semibold hover:scale-125 transition duration-700 ease-in-out'>LogOut</button>
-            </div>
+      <Header />
+      <div className="pt-20 rounded-2xl shadow-2xl p-5 md:p-20 mx-3">
+        <div className="flex justify-between">
+          <h1 className='font-semibold font-serif text-2xl p-2'>Your Details</h1>
+          <Link to='/'>
+            <h1 className='font-semibold bg-[#6dc234] p-2 px-5 w-fit rounded-lg'>Go To Home</h1>
+          </Link>
+        </div>
+        <hr className='mt-2' />
+
+        <div className="mt-7">
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>User Id:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : user.data._id}</h1></div>
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>First Name:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : user.data.firstName}</h1></div>
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Last Name:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : user.data.lastName}</h1></div>
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Email:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : user.data.email}</h1></div>
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Role:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : user.data.role}</h1></div>
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Verification Status:</h1><h1 className='p-0.5 flex'><MdVerified className='text-[#6dc234] text-2xl' /></h1></div>
+          <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Date Joined:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : new Date(user.data.createdAt).toDateString()}</h1></div>
+
+          <div className="" onClick={logOut}>
+            <button className='bg-[#6dc234] hover:bg-red-500 mx-2 p-2 px-6 rounded-lg font-semibold'>Log Out</button>
           </div>
         </div>
 
-        
+        <div className="mt-10">
+          <h2 className='font-semibold text-xl'>Your Bookings:</h2>
+            {bookingLoading ? (
+              <p className="animate-pulse mt-4">Loading your bookings...</p>
+            ) : bookings.length === 0 ? (
+              <p className="mt-4 text-gray-600">You have no bookings yet.</p>
+            ) : (
+              <div className="mt-4 space-y-4">
+                {bookings.map((booking) => (
+                  <div key={booking._id} className="border p-4 rounded-lg shadow-md bg-gray-100">
+                    <h3 className='font-semibold text-lg'>{booking.roomName} ({booking.roomType})</h3>
+                    <p><strong>Booking ID:</strong> {booking.bookingId}</p>
+                    <p><strong>Check-In:</strong> {new Date(booking.CheckInDate).toDateString()}</p>
+                    <p><strong>Check-Out:</strong> {new Date(booking.CheckOutDate).toDateString()}</p>
+                    <p><strong>Total Days:</strong> {booking.totalDays}</p>
+                    <p><strong>Amount Paid:</strong> {booking.amount} {booking.currency || 'NGN'}</p>
+                    <p><strong>Status:</strong> {booking.status}</p>
+                  </div>
+                ))}
+              </div>
+          )}
+        </div>
+      </div>
     </>
-  )
+  );
 }
 
-export default UserDash
+export default UserDash;

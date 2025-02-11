@@ -97,7 +97,7 @@ export const HotelProvider = ({ children }) => {
         try {
             const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-Bookings")
             const data = await response.json()
-            setOrder(data) 
+            setOrder(data.formattedBookings) 
             setTotalAmount(data.totalAmount)       
         } catch (error) {
             console.log(error)
