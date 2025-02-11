@@ -74,7 +74,7 @@ function Header() {
           {isAuthenticated ? (<>
               <Link to='/'>
                 <div className="logo flex px-5 font-bold text-lg md:text-2xl text-white hover:text-[#6dc234]">
-                    <i className="fa-solid fa-hotel pt-1 px-2"></i>
+                    <i className="fa-solid fa-user pt-1 px-2"></i>
                     <h1>Hello {loading ? ('...'):( user.data.lastName)}</h1>
                 </div>
               </Link>       
