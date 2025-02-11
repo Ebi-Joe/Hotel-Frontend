@@ -12,7 +12,7 @@ function Login() {
   const [good, setGood] = useState('');
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const redirectPath = params.get('redirect') || '/';
+  const redirectPath = params.get('redirect')
 
   const SubmitHandler = async (e) => {
     e.preventDefault();
@@ -41,11 +41,11 @@ function Login() {
           if (redirectPath && redirectPath !== '/login') {
             navigate(redirectPath);
             window.location.reload();
-          } else if (data.user.role === 'Guest') {
-            navigate('/');
+          } else if (data.user.role === 'Admin') {
+            navigate('/hotelControllerDash');
             window.location.reload();
           } else {
-            navigate('/admin');
+            navigate('/');
             window.location.reload();
           }
         }, 2000);

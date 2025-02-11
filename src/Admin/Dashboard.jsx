@@ -7,7 +7,7 @@ import HotelContext from '../context/HotelContext';
 
 function Dashboard() {
 
-    const { roomType, count, no, totalAmount } = useContext(HotelContext)
+    const { roomType, count, no, totalAmount, averageRating, totalReviews } = useContext(HotelContext)
 
   return (
     <>
@@ -15,7 +15,7 @@ function Dashboard() {
             <AdminSidebar/>
             <div className="dash flex-1 font-[poppins,sans-serif] max-w-5xl ml-[5em] md:ml-[18em] overflow-y-auto">
                 <h2 className='m-4 text-[2rem] font-semibold tracking-wide'>Dashboard</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-12 border-[1px] rounded-md border-black] bg-white">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-12 border-[1px] rounded-md border-black] bg-white">
                     <div className="1 flex m-4 p-2">
                         <div className="icn bg-[tomato] text-white text-3xl p-4 rounded-lg">
                             <LuArrowUpDown />
@@ -32,6 +32,15 @@ function Dashboard() {
                         </div>
                         <div className="user bg-black text-2xl p-3 rounded">
                             <PiUsersFill />
+                        </div>
+                    </div>
+                    <div className="2 flex p-4 justify-between bg-[#f97e68] rounded-lg text-white border-[1px] m-4">
+                        <div className="txt">
+                            <h1 className='font-bold text-xl'>{totalReviews}</h1>
+                            <h1 className='text-xs font-semibold'>All Users</h1>
+                        </div>
+                        <div className="user bg-black text-2xl p-3 rounded">
+                            {averageRating}
                         </div>
                     </div>
                     <div className="3 flex border-[1px] align-center justify-between p-4 rounded-lg bg-amber-50 m-4">

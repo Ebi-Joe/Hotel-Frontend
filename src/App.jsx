@@ -158,7 +158,7 @@ function App() {
               <Footer/>
             </>}/>
 
-            <Route path='/admin' element={
+            <Route path='/hotelControllerDash' element={
                 <>
                   <Dashboard />
                 </>

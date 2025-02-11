@@ -35,6 +35,10 @@ function GuestOrders() {
                                 <h2 className='md:text-xl font-semibold py-1 md:px-4'>{items.roomType}</h2>
                             </div>
                             <div className="mx-2 md:flex">
+                                <h2 className='md:text-xl py-1'>RoomName:</h2>
+                                <h2 className='md:text-xl font-semibold py-1 md:px-4'>{items.roomName}</h2>
+                            </div>
+                            <div className="mx-2 md:flex">
                                 <h2 className='md:text-xl'>Guest Name:</h2>
                                 <div className="flex font-semibold md:px-2">
                                     <h2 className='md:text-xl px-1'>{items.firstName}</h2>

@@ -79,35 +79,35 @@ function Signup() {
               <div className="form1 mx-8 px-1 py-2">
                 <div className="1 px-1">
                   <label className='' htmlFor="">First name</label>
-                  <input onChange={(e) => setFirstName(e.target.value)} className='border block p-2 rounded w-full' type="text" placeholder='First name' required />
+                  <input onChange={(e) => setFirstName(e.target.value)} className='border block p-2 rounded w-full' type="text" placeholder='First name' value={firstName} required />
                 </div>
 
                 <div className="2 px-1">
                   <label className='' htmlFor="">Last name</label>
-                  <input onChange={(e) => setLastName(e.target.value)} className='border block p-2 rounded w-full' type="text" placeholder='Last name' required/>
+                  <input onChange={(e) => setLastName(e.target.value)} className='border block p-2 rounded w-full' type="text" placeholder='Last name' value={lastName} required/>
                 </div>
               </div>
 
               <div className="form2 mx-8 px-1">
                 <label className='py-12' htmlFor="">Your Email Address</label>
-                <input onChange={(e) => setEmail(e.target.value)} className='border block p-2 rounded w-full' type="text" placeholder='Email' required/>
+                <input onChange={(e) => setEmail(e.target.value)} className='border block p-2 rounded w-full' type="text" placeholder='Email' value={email} required/>
               </div>
 
               <div className="4  mx-8 py-2 px-1">
                 <div className="1 px-1">
                   <label htmlFor="">Password</label>
-                  <input onChange={(e) => setPassword(e.target.value)} className='border block p-2 my-2 rounded w-full' type="password" name="" id="" placeholder='Password'/>
+                  <input onChange={(e) => setPassword(e.target.value)} className='border block p-2 my-2 rounded w-full' type="password" name="" id="" placeholder='Password' value={password}/>
                 </div>
 
                 <div className="2 px-1">
                   <label htmlFor="">Confirm Password</label>
-                  <input onChange={(e) => setConfirmPassword(e.target.value)} className='border block p-2 my-2 rounded w-full' type="password" name="" id="" placeholder='Confirm password'/>
+                  <input onChange={(e) => setConfirmPassword(e.target.value)} className='border block p-2 my-2 rounded w-full' type="password" name="" id="" placeholder='Confirm password' value={confirmPassword}/>
                 </div>
               </div>
 
               <div className="form2 mx-8 px-1 pb-3">
                 <label className='py-12' htmlFor="">Role</label>
-                <select onChange={(e) => setRole(e.target.value)} name="" id="" className='border block p-2 rounded w-full'>
+                <select onChange={(e) => setRole(e.target.value)} name="" id="" className='border block p-2 rounded w-full' value={role}>
                   <option value="Guest">Guest</option>
                   <option value="Admin">Admin</option>
                 </select>

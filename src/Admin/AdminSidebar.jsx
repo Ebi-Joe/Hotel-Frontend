@@ -47,7 +47,7 @@ function AdminSidebar() {
             <button className="md:hidden bg-[#e6d4d4] h-full text-white fixed" onClick={toggleSidebar}>
                 {isSidebarOpen ? <GoSidebarExpand className='text-2xl mx-1'  /> : <GoSidebarCollapse className='text-4xl text-[tomato] mx-3 mt-[1em]' />}
                 <ul className='pt-12 text-lg'>
-                    <Link to='/admin'>
+                    <Link to='/hotelControllerDash'>
                         <li className='flex text-[gray] px-4 md:px-8 py-4 md:py-2 hover:bg-[white] hover:text-[black]'>
                             <MdDashboard className='text-2xl mx-1' />
                         </li>
@@ -111,7 +111,7 @@ function AdminSidebar() {
                     </div>
                 )}
                 <ul className='md:pt-12 text-lg'>
-                    <Link to='/admin'>
+                    <Link to='/hotelControllerDash'>
                         <li className='flex text-[gray] px-4 md:px-8 py-4 md:py-2 hover:bg-[white] hover:text-[black]'>
                             <MdDashboard className='text-2xl mx-1' />
                             <h1 className=' md:flex px-2 font-bold'>Dashboard</h1>
