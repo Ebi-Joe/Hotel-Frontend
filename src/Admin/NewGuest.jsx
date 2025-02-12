@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
 import { RxDoubleArrowLeft } from "react-icons/rx";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import HotelContext from '../context/HotelContext';
+import Loader from '../components/Loader';
 
 function newGuest() {
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [email, setEmail] = useState('')
@@ -12,8 +15,20 @@ function newGuest() {
     const [role, setRole] = useState('Guest')
     const [error, setError] = useState('')
     const [good, setGood] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [loadings, setLoading] = useState(false)
     const navigate = useNavigate()
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
     const newGuestHandler = async (e) => {
         e.preventDefault()
@@ -127,7 +142,7 @@ function newGuest() {
                                     </div>
                                 </div>
                                 <div className="btn m-4 text-center">
-                                    <button disabled={loading} type='submit' className='m-2 p-2 px-4 bg-green-400 text-white font-semibold rounded-md hover:bg-[#55ea55] hover:text-black'>{loading ? "Creating A New Guest" : "Create Guest"}</button>
+                                    <button disabled={loadings} type='submit' className='m-2 p-2 px-4 bg-green-400 text-white font-semibold rounded-md hover:bg-[#55ea55] hover:text-black'>{loadings ? "Creating A New Guest" : "Create Guest"}</button>
                                 </div>
                             </form>
                         </div>

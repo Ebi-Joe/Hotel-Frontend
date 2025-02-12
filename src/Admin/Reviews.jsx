@@ -1,11 +1,25 @@
 import React, { useContext } from 'react'
 import AdminSidebar from './AdminSidebar'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import HotelContext from '../context/HotelContext'
 import { FaStar, FaStarHalf } from "react-icons/fa";
+import Loader from '../components/Loader';
 
 function Reviews() {
-    const { reviews } = useContext(HotelContext)
+    const { reviews, isAuthenticated, user, loading } = useContext(HotelContext)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
+
     const Rating = ({ rating }) => {
         const maxRating = 5;
         const ratingArray = Array(maxRating).fill();

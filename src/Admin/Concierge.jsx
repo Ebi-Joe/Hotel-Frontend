@@ -6,10 +6,23 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { BsThreeDots } from "react-icons/bs";
 import { BsTrash } from "react-icons/bs";
 import { CiEdit } from "react-icons/ci";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function Concierge() {
-    const { concierge, deleteConcierge } = useContext(HotelContext);
+    const { concierge, deleteConcierge, isAuthenticated, user, loading } = useContext(HotelContext);
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
   return (
     <div>

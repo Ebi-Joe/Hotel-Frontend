@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
 import { RxDoubleArrowLeft } from "react-icons/rx";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import HotelContext from '../context/HotelContext';
+import Loader from '../components/Loader';
 
 function NewReview() {
-    const [loading, setLoading] = useState(false)
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
+    const [loadings, setLoading] = useState(false)
     const [error, setError] = useState('')
     const [good, setGood] = useState('')
     const [name, setName] = useState('');
@@ -13,6 +16,18 @@ function NewReview() {
     const [date, setDate] = useState("");
     const [rating, setRating] = useState('');
     const navigate = useNavigate()
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
     useEffect(() => {
         const currentDate = new Date().toISOString().split('T')[0];
@@ -116,7 +131,7 @@ function NewReview() {
                                     </div>
                                 </div>
                                 <div className="btn m-4 text-center">
-                                    <button disabled={loading} type='submit' className='m-2 p-2 px-4 bg-green-400 text-white font-semibold rounded-md hover:bg-[#55ea55] hover:text-black'>{loading ? "Creating Review...." : "Create Review"}</button>
+                                    <button disabled={loadings} type='submit' className='m-2 p-2 px-4 bg-green-400 text-white font-semibold rounded-md hover:bg-[#55ea55] hover:text-black'>{loadings ? "Creating Review...." : "Create Review"}</button>
                                 </div>
                             </form>
                         </div>

@@ -2,28 +2,23 @@ import React, { useContext } from 'react'
 import { FaStar, FaStarHalf } from 'react-icons/fa';
 import AdminSidebar from './AdminSidebar'
 import HotelContext from '../context/HotelContext'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function RoomType() {
-    const { roomType } = useContext(HotelContext)
-    // const Rating = ({ rating }) => {
-    //     const maxRating = 5;
-    //     const ratingArray = Array(maxRating).fill();
+    const { roomType, isAuthenticated, user, loading } = useContext(HotelContext)
 
-    //     return (
-    //     <div className="flex text-sm text-yellow-500 p-1">
-    //         {ratingArray.map(( items, index) => {
-    //         if (rating >= index + 1) {
-    //             return <FaStar key={index} />;
-    //         } else if (rating >= index + 0.1) {
-    //             return <FaStarHalf key={index} />;
-    //         } else {
-    //             return <FaStar key={index} className="text-gray-300" />;
-    //         }
-    //         })}
-    //     </div>
-    //     );
-    // };
+    if (loading) {
+      return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
   return (
     <>
@@ -45,14 +40,6 @@ function RoomType() {
                       <button className={`absolute top-[50%] mx-5 p-1 px-3 text-white text-sm m-1 rounded ${items.availabilityStatus === "Available" ? "bg-green-400" : "bg-red-400" }`}>
                         {items.availabilityStatus === "Available" ? "Available" : "Booked"}
                       </button>
-{/* 
-                      <div className="flex justify-between py-2 text-sm font-medium">
-                        <h1>Ranking</h1>
-                        <div className="flex">
-                          <h1>{items.rating}</h1>
-                          <Rating rating={items.rating} />
-                        </div>
-                      </div> */}
 
                       <div className="flex justify-between py-2 text-sm font-medium border-b-2 border-slate-300">
                         <h1 className='font-bold'>Rooms</h1>

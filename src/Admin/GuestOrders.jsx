@@ -1,11 +1,25 @@
 import React, { useContext, useEffect, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
 import HotelContext from '../context/HotelContext'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function GuestOrders() {
-    const { order } = useContext(HotelContext)
-    const [loading, setLoading] = useState(true)
+    const { order, isAuthenticated, user, loading } = useContext(HotelContext)
+    const [loadings, setLoading] = useState(true)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
+
     useEffect(() => {
         const fetchData = async () => {
             setLoading(false);

@@ -1,15 +1,30 @@
 import React, { useContext, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
 import { RxDoubleArrowLeft } from "react-icons/rx";
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
+import HotelContext from '../context/HotelContext';
+import Loader from '../components/Loader';
 
 function newRoom() {
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
     const [ roomType, setRoomType ] = useState('');
     const [ roomNo, setRoomNo ] = useState('');
     const navigate = useNavigate();
     const [error, setError] = useState('')
     const [good, setGood] = useState('')
-    const [loading, setLoading] = useState(false)
+    const [loadings, setLoading] = useState(false)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
     const roomHandler = async (e) => {
         e.preventDefault()
@@ -87,7 +102,7 @@ function newRoom() {
                                     </div>
                                 </div>
                                 <div className="btn m-4 text-center">
-                                    <button disabled={loading} className='m- p-2 px-4 bg-green-400 text-white font-semibold rounded-md hover:bg-[#55ea55] hover:text-black'>{loading ? "Creating Room" : "Create Room"}</button>
+                                    <button disabled={loadings} className='m- p-2 px-4 bg-green-400 text-white font-semibold rounded-md hover:bg-[#55ea55] hover:text-black'>{loadings ? "Creating Room" : "Create Room"}</button>
                                 </div>
                             </form>
                         </div>

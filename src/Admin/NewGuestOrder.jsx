@@ -1,13 +1,28 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { RxDoubleArrowLeft } from "react-icons/rx";
+import HotelContext from '../context/HotelContext';
+import Loader from '../components/Loader';
 
 function NewGuestOrder() {
     const [error, setError] = useState('');
     const [good, setGood] = useState();
-    const [loading, setLoading] = useState(false);
+    const [loadings, setLoading] = useState(false);
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
 
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
+    
     const today = new Date().toISOString().split("T")[0]
 
     const handlePayment = async (e) => {
@@ -164,7 +179,7 @@ function NewGuestOrder() {
                                     </div>
                                 </div>
                                 <div className="btn text-center m-2">
-                                    <button disabled={loading} type='submit' className='bg-green-400 p-2 px-5 rounded-md text-white outline-none hover:bg-[#55ea55] hover:text-black hover:font-semibold'>{loading ? "Booking" : "Book A Guest"}</button>
+                                    <button disabled={loadings} type='submit' className='bg-green-400 p-2 px-5 rounded-md text-white outline-none hover:bg-[#55ea55] hover:text-black hover:font-semibold'>{loadings ? "Booking" : "Book A Guest"}</button>
                                 </div>
                             </form>
                         </div>

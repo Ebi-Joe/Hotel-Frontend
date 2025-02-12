@@ -1,12 +1,27 @@
 import React, { useContext, useEffect, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import HotelContext from '../context/HotelContext';
+import Loader from '../components/Loader';
 
 function Room() {
-  const [room, setRoom] = useState([]);
-  const [loading, setLoading] = useState(true)
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
+    const [room, setRoom] = useState([]);
+    const [loadings, setLoading] = useState(true)
+    
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
 
-  const fetchRooms = async () => {
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
+
+    const fetchRooms = async () => {
         try {
             const response = await fetch("https://hotel-backend-itqc.onrender.com/api/getAll-room");
             const rooms = await response.json()
@@ -15,10 +30,10 @@ function Room() {
         } catch (error) {
             console.log(error)
         }
-  }
-  useEffect(() => {
-    fetchRooms()
-  })
+    }
+    useEffect(() => {
+        fetchRooms()
+    })
 
   return (
     <>
@@ -42,7 +57,7 @@ function Room() {
                             </tr>
                         </thead>
                         <tbody className='text-sm font-medium text-center'>
-                            {loading ? (
+                            {loadings ? (
                                 <div className="">
                                     <div className="flex-col gap-4 w-full flex items-center justify-center">
                                         <div className="w-20 h-20 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">

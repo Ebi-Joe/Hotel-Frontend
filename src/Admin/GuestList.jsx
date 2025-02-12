@@ -1,13 +1,27 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { FaTrashCan } from "react-icons/fa6";
 import { CiEdit } from "react-icons/ci";
+import HotelContext from '../context/HotelContext';
+import Loader from '../components/Loader'
 
 function GuestList() {
-    const [ user, setUser ] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [ users, setUser ] = useState([]);
+    const [loadings, setLoading] = useState(true)
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
     
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
     
     const fetchUsers = async () => {
         try {
@@ -46,7 +60,7 @@ function GuestList() {
                             </tr>
                         </thead>
                         <tbody className='text-sm font-medium text-center'>
-                            {loading ? (
+                            {loadings ? (
                                 <div className="">
                                     <div className="flex-col gap-4 w-full flex items-center justify-center">
                                         <div className="w-20 h-20 border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">
@@ -55,7 +69,7 @@ function GuestList() {
                                     </div>
                                 </div> 
                             ):(
-                                user.map((items, index) => (
+                                users.map((items, index) => (
                                     <tr key={index}>
                                         <td className='p-5 bg-[lightblue] border-b-2 rounded-bl-lg'>{items._id}</td>
                                         <div className="p-5 px-10 text-center border-b-2">

@@ -1,9 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import AdminSidebar from './AdminSidebar'
+import HotelContext from '../context/HotelContext';
+import { Navigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function Contacts() {
     const [contacts, setContacts] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loadings, setLoading] = useState(true)
+    const { isAuthenticated, user, loading } = useContext(HotelContext)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
     const fetchContacts = async () => {
         try {
@@ -26,7 +42,7 @@ function Contacts() {
             <AdminSidebar/>
             <div className="">
             <div className="mt-12 ml-[5em] md:ml-[17em] max-w-5xl mx-auto">
-                    {loading ? (
+                    {loadings ? (
                         <div className="">
                             <div className="flex-col gap-4">
                                 <div className="w-[10rem] h-[10rem] border-4 border-transparent text-blue-400 text-4xl animate-spin flex items-center justify-center border-t-blue-400 rounded-full">

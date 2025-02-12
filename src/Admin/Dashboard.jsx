@@ -4,10 +4,24 @@ import { IoKey } from "react-icons/io5";
 import { PiUsersFill } from "react-icons/pi";
 import { LuArrowUpDown } from "react-icons/lu";
 import HotelContext from '../context/HotelContext';
+import { Navigate } from 'react-router-dom';
+import Loader from '../components/Loader';
 
 function Dashboard() {
 
-    const { roomType, count, no, totalAmount, averageRating, totalReviews } = useContext(HotelContext)
+    const { roomType, count, no, totalAmount, averageRating, totalReviews, isAuthenticated, user, loading } = useContext(HotelContext)
+
+    if (loading) {
+        return <div className="flex justify-center items-center h-screen"><Loader/></div>;
+    }
+
+    if (!isAuthenticated) {
+        return <Navigate to='/unauthorized' />
+    }
+
+    if (user && user.data && user.data.role !== 'Admin') {
+        return <Navigate to='/unauthorized' />;
+    }
 
   return (
     <>
