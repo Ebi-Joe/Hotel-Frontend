@@ -45,8 +45,8 @@ function AdminSidebar() {
                 />
             )}
             <button className="md:hidden bg-[#e6d4d4] h-full text-white fixed" onClick={toggleSidebar}>
-                {isSidebarOpen ? <GoSidebarExpand className='text-2xl mx-1'  /> : <GoSidebarCollapse className='text-4xl text-[tomato] mx-3 mt-[1em]' />}
-                <ul className='pt-12 text-lg'>
+                {isSidebarOpen ? <GoSidebarExpand className='text-2xl mx-1'  /> : <GoSidebarCollapse className='text-4xl text-[tomato] mx-3 mt-[0.1em]' />}
+                <ul className='pt-10 text-lg'>
                     <Link to='/hotelControllerDash'>
                         <li className='flex text-[gray] px-4 md:px-8 py-4 md:py-2 hover:bg-[white] hover:text-[black]'>
                             <MdDashboard className='text-2xl mx-1' />
@@ -97,10 +97,10 @@ function AdminSidebar() {
 
             <div className={`sidebar fixed z-50 h-screen bg-[#e6d4d4] flex-0 w-[250px] mr-4 shadow-2xl transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
                 <button className="md:hidden p-2 bg-[#e6d4d4] text-[tomato] text-center" onClick={toggleSidebar}>
-                    {isSidebarOpen ? <GoSidebarExpand className='text-4xl mx-3 mt-[1em]' /> : <GoSidebarCollapse className='text-2xl mx-1' />}
+                    {isSidebarOpen ? <GoSidebarExpand className='text-4xl mx-3 mt-[0.5em]' /> : <GoSidebarCollapse className='text-2xl mx-1' />}
                 </button>
                 {isAuthenticated ? (
-                    <div className="tx pt-[1em] md:pt-[6em]">
+                    <div className="tx pt-[1em] md:pt-[5em]">
                         <h1 className='px-4 md:flex font-bold text-2xl text-[black] justify-center'>{loading ? <span className='animate-bounce'>...</span>: (user.data.lastName)}</h1>
                         <h2 className='px-4 md:flex text-lg text-[gray] justify-center py-2'>{loading ? <span className='animate-bounce'>...</span>: (user.data.email)}</h2>
                     </div>
@@ -110,7 +110,7 @@ function AdminSidebar() {
                         <h2 className='px-4 md:flex text-lg text-[gray] justify-center py-2'>ebijoe911@gmail.com</h2>
                     </div>
                 )}
-                <ul className='md:pt-12 text-lg'>
+                <ul className='md:pt-10 text-lg'>
                     <Link to='/hotelControllerDash'>
                         <li className='flex text-[gray] px-4 md:px-8 py-4 md:py-2 hover:bg-[white] hover:text-[black]'>
                             <MdDashboard className='text-2xl mx-1' />
