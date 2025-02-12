@@ -34,7 +34,7 @@ function Dashboard() {
                             <PiUsersFill />
                         </div>
                     </div>
-                    <div className="flex p-4 justify-between bg-yellow-400 rounded-lg text-white border m-4">
+                    <div className="flex p-4 justify-between bg-yellow-300 rounded-lg text-white border m-4">
                         <div className="txt">
                             <h1 className='font-bold text-xl'>{totalReviews}</h1>
                             <h1 className='text-xs font-semibold'>Reviews</h1>
