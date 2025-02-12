@@ -1,60 +1,76 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Header from '../Header'
-import Footer from '../Footer'
-import HotelContext from '../../context/HotelContext'
-import { Link, Navigate, useSearchParams } from 'react-router-dom'
+import React, { useContext, useEffect, useState } from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import HotelContext from '../../context/HotelContext';
+import { Link, Navigate, useSearchParams } from 'react-router-dom';
 
 function ThankYou() {
-  const { createBooking, booking, isAuthenticated } = useContext(HotelContext)
-  const [ searchParams ] = useSearchParams();
+  const { createBooking, booking, isAuthenticated } = useContext(HotelContext);
+  const [searchParams] = useSearchParams();
   const tx_ref = searchParams.get("tx_ref");
   const transaction_id = searchParams.get("transaction_id");
   const [isProcessed, setIsProcessed] = useState(false);
 
   if (!isAuthenticated) {
-    return <Navigate to='/login'/>
+    return <Navigate to='/login' />;
   }
 
   useEffect(() => {
     if (transaction_id && tx_ref && !isProcessed) {
       createBooking(tx_ref, transaction_id);
-      setIsProcessed(true);  //prevent the effect from running again
+      setIsProcessed(true);
     }
-  }, [transaction_id, tx_ref, createBooking, isProcessed] );
+  }, [transaction_id, tx_ref, createBooking, isProcessed]);
 
   return (
     <>
-        <Header/>
-        <div className="pt-24 pb-8">
-          <div className="thankyou max-w-xl mx-auto shadow-xl">
-            <div className="top bg-[silver] h-[35vh] flex justify-center items-center text-center pt-6 rounded-t-xl">
-                <i className="fa-solid fa-circle-check text-[7em] p-2 text-[#02BF74] bg-[white] rounded-full"></i>
+      <Header />
+      <div className="min-h-screen bg-gray-100 flex flex-col justify-center items-center p-6">
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-2xl w-full text-center animate-fade-in">
+          <div className="flex flex-col items-center mb-6">
+            <div className="bg-green-500 p-4 rounded-full mb-4 shadow-lg">
+              <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
             </div>
-            <div className="thank text-center h-[40vh]">
-                <p className='text-[#02BF74] text-3xl'>Thank You! {booking?.firstName}</p>
-                <p className=''>Thank's for your patronage, we're expecting you soon</p>
-                <p className='font-semibold'>Your Booking Details:</p>
+            <h1 className="text-3xl font-bold text-green-600">Thank You, {booking?.firstName}!</h1>
+            <p className="text-gray-600 mt-2">Your booking for {booking?.roomName} has been successfully processed.</p>
+          </div>
 
-                <p className="pb-5">Your payment was processed <span className='text-[#02BF74]'>successfully</span></p>
+          <div className="bg-gray-50 p-4 rounded-xl shadow-inner mb-6 text-left">
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">Booking Details</h2>
+            <p><span className="font-medium">Transaction Reference:</span> {tx_ref}</p>
+            <p><span className="font-medium">Transaction ID:</span> {transaction_id}</p>
+            <p><span className="font-medium">Check-in Date:</span> {booking?.checkInDate}</p>
+            <p><span className="font-medium">Check-out Date:</span> {booking?.checkOutDate}</p>
+            <p><span className="font-medium">Total Days:</span> {booking?.totalDays}</p>
+            <p><span className="font-medium">Rooms Booked:</span> {booking?.rooms}</p>
+            <p><span className="font-medium">Total Amount:</span> ${booking?.amount}</p>
+          </div>
 
-                <Link to="/">
-                    <button type="button" className="bg-white text-center w-52 rounded-2xl h-14 relative font-sans text-black text-xl font-semibold group">
-                        <div className="bg-green-400 rounded-xl h-12 w-12 flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[184px] z-10 duration-500">
-                            <svg width="25px" height="25px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-                                <path fill="#000000" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
-                                <path fill="#000000" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z"></path>
-                            </svg>
-                        </div>
-                        <p className="translate-x-2">Go To Home</p>
-                    </button>
-                </Link>
-
-            </div>
+          <div className="md:flex">
+            <Link to="/">
+              <button type="button" className="bg-green-500 hover:bg-green-600 text-white text-lg font-semibold py-3 px-6 m-2 rounded-full transition duration-300 shadow-md flex items-center justify-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18m-6-6l6 6-6 6"></path>
+                </svg>
+                Go to Home
+              </button>
+            </Link>
+            <Link to="/testimonials">
+              <button type="button" className="bg-green-500 hover:bg-green-600 text-white text-lg font-semibold py-3 px-6 m-2 rounded-full transition duration-300 shadow-md flex items-center justify-center gap-2">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12h18m-6-6l6 6-6 6"></path>
+                </svg>
+                Send A Review
+              </button>
+            </Link>
           </div>
         </div>
-        <Footer/>
+      </div>
+      <Footer />
     </>
-  )
+  );
 }
 
-export default ThankYou
+export default ThankYou;

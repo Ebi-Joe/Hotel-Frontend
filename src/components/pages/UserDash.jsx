@@ -1,19 +1,23 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Header from '../Header';
 import { MdVerified } from 'react-icons/md';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import HotelContext from '../../context/HotelContext';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import AuthContext from '../../context/AuthContext';
 
 function UserDash() {
-  const { user, loading } = useContext(HotelContext);
+  const { user, loading, isAuthenticated } = useContext(HotelContext);
   const [state, dispatch] = useContext(AuthContext);
   const { deleteItem } = useLocalStorage('auth-token');
   const navigate = useNavigate();
 
   const [bookings, setBookings] = useState([]);  // State to store bookings
   const [bookingLoading, setBookingLoading] = useState(true);
+
+  if(!isAuthenticated) {
+    return <Navigate to='/'/>
+  }
 
   // Function to log out
   const logOut = (e) => {
@@ -75,8 +79,11 @@ function UserDash() {
           <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Verification Status:</h1><h1 className='p-0.5 flex'><MdVerified className='text-[#6dc234] text-2xl' /></h1></div>
           <div className="flex py-1"><h1 className='font-semibold px-2 text-lg'>Date Joined:</h1><h1 className="p-0.5">{loading ? <span className='animate-ping'>...</span> : new Date(user.data.createdAt).toDateString()}</h1></div>
 
-          <div className="" onClick={logOut}>
-            <button className='bg-[#6dc234] hover:bg-red-500 mx-2 p-2 px-6 rounded-lg font-semibold'>Log Out</button>
+          <div className="">
+            <button onClick={logOut} className='bg-[#6dc234] hover:bg-red-400 mx-2 p-2 px-6 rounded-lg font-semibold'>Log Out</button>
+            <Link to="/forgotPassword">
+              <button className='bg-[#6dc234] hover:bg-yellow-400 mx-2 p-2 px-6 rounded-lg font-semibold'>Change Password</button>
+            </Link>
           </div>
         </div>
 
