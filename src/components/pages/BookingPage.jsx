@@ -13,6 +13,7 @@ function BookingPage() {
     const [deleteId, setDeleteId] = useState(null);
     const [error, setError] = useState('');
     const [good, setGood] = useState();
+    const [agree, setAgree] = useState(false)
     const [loading, setLoading] = useState(false);
     const isAuthenticated = localStorage.getItem('auth-token');
     const location = useLocation();
@@ -34,6 +35,11 @@ function BookingPage() {
 
     const handlePayment = async (e) => {
         e.preventDefault();
+
+        if (!agree) {
+            setError("You must agree to the privacy terms before proceeding.");
+            return;
+        }
         
         if (!isAuthenticated) {
             navigate(`/login?redirect=${location.pathname}`);
@@ -232,11 +238,9 @@ function BookingPage() {
                     <h1 className='text-2xl font-bold py-1'>Acknowledgement</h1>
                     <h1 className='font-semibold py-1'>By completing this booking, I agree with the Booking Conditions</h1>
                     <div className="flex font-semibold text-[15px] py-2">
-                        <form action="">
-                            <input type="checkbox" name="" id="" required/>
-                            <label htmlFor="" className='px-1'>* I agree with the privacy terms.</label>
-                        </form>
-                    </div>
+                            <input  type="checkbox"  id="privacyAgreement"  checked={agree}  onChange={(e) => setAgree(e.target.checked)}  required />
+                            <label htmlFor="privacyAgreement" className='px-1'>* I agree with the privacy terms.</label>
+                        </div>
                 </div>
                 <div className="btn text-center m-8">
                     <button disabled={loading} className='bg-[#6cd234] font-semibold p-3 px-6 rounded'>{loading ? "Confirming" : "Confirm Booking"}</button>

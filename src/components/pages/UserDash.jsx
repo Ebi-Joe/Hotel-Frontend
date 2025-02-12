@@ -33,7 +33,7 @@ function UserDash() {
 
   const fetchBookings = async (email) => {
     try {
-      const response = await fetch('https://hotel-backend-itqc.onrender.com/api/getUserBookings', {  // Replace with your API URL
+      const response = await fetch('https://hotel-backend-itqc.onrender.com/api/getUserBookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,12 +91,14 @@ function UserDash() {
                 {bookings.map((booking) => (
                   <div key={booking._id} className="border p-4 rounded-lg shadow-md bg-gray-100">
                     <h3 className='font-semibold text-lg'>{booking.roomName} ({booking.roomType})</h3>
-                    <p><strong>Booking ID:</strong> {booking.bookingId}</p>
+                    <p><strong>Booking ID:</strong> {booking._id}</p>
                     <p><strong>Check-In:</strong> {new Date(booking.CheckInDate).toDateString()}</p>
                     <p><strong>Check-Out:</strong> {new Date(booking.CheckOutDate).toDateString()}</p>
                     <p><strong>Total Days:</strong> {booking.totalDays}</p>
+                    <p><strong>Rooms:</strong> {booking.rooms}</p>
                     <p><strong>Amount Paid:</strong> {booking.amount} {booking.currency || 'NGN'}</p>
                     <p><strong>Status:</strong> {booking.status}</p>
+                    <p><strong>Completed On:</strong> {booking.createdAt}</p>
                   </div>
                 ))}
               </div>
