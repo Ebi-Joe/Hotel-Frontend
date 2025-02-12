@@ -19,6 +19,7 @@ function ThankYou() {
     if (transaction_id && tx_ref && !isProcessed) {
       createBooking(tx_ref, transaction_id);
       setIsProcessed(true);
+      localStorage.setItem(`bookingProcessed_${tx_ref}`, 'true');
     }
   }, [transaction_id, tx_ref, createBooking, isProcessed]);
 
