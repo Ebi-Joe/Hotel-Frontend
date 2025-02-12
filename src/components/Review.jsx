@@ -14,7 +14,7 @@ function Review() {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentReviewIndex((prevIndex) => (prevIndex + 1) % displayedReviews.length);
-    }, 5000);
+    }, 9000);
 
     return () => clearInterval(intervalId);
   }, [displayedReviews.length]);
