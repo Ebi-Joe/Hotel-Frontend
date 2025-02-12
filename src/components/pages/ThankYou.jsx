@@ -41,8 +41,8 @@ function ThankYou() {
             <h2 className="text-xl font-semibold text-gray-800 mb-2">Booking Details</h2>
             <p><span className="font-medium">Transaction Reference:</span> {tx_ref}</p>
             <p><span className="font-medium">Transaction ID:</span> {transaction_id}</p>
-            <p><span className="font-medium">Check-in Date:</span> {booking?.checkInDate}</p>
-            <p><span className="font-medium">Check-out Date:</span> {booking?.checkOutDate}</p>
+            <p><span className="font-medium">Check-in Date:</span> {booking?.CheckInDate}</p>
+            <p><span className="font-medium">Check-out Date:</span> {booking?.CheckOutDate}</p>
             <p><span className="font-medium">Total Days:</span> {booking?.totalDays}</p>
             <p><span className="font-medium">Rooms Booked:</span> {booking?.rooms}</p>
             <p><span className="font-medium">Total Amount:</span> ${booking?.amount}</p>
