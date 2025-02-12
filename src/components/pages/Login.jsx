@@ -80,14 +80,12 @@ function Login() {
           <form onSubmit={SubmitHandler}>
             <div className="mb-4">
               <label className="block text-gray-700">Your Email Address</label>
-              <input 
-                className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              <input className="w-full mt-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 type="email" 
                 placeholder="Email" 
                 value={email} 
                 onChange={(e) => setEmail(e.target.value)} 
-                required 
-              />
+                required />
             </div>
 
             <div className="mb-4">
@@ -111,7 +109,7 @@ function Login() {
               disabled={loading}
               className="w-full bg-black text-white py-3 rounded-lg font-bold hover:bg-gray-800 transition duration-300"
             >
-              {loading ? 'Logging In...' : 'Login'}
+              {loading ? <span className='cursor-not-allowed'>Logging In...</span> : 'Login'}
             </button>
           </form>
 

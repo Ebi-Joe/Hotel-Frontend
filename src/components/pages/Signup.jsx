@@ -123,7 +123,7 @@ function Signup() {
               </div>
 
               <div className="btn text-center py-2">
-                <button disabled={loading} className='bg-[black] text-white font-bold text-[15px] px-4 p-2 rounded-full'>{loading ? "Signing Up!..." : "Sign Up"}</button>
+                <button disabled={loading} className='bg-[black] text-white font-bold text-[15px] px-4 p-2 rounded-full'>{loading ? <span className='cursor-not-allowed'>Signing Up!...</span> : "Sign Up"}</button>
               </div>
 
             </form>
