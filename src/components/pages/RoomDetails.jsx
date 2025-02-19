@@ -24,6 +24,10 @@ function RoomDetails() {
         setSelectedImages(roomItems?.images?.[0].img)
     }, [roomItems])
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     const today = new Date().toISOString().split("T")[0]
 
     const calculateDays = () => {
@@ -152,13 +156,13 @@ function RoomDetails() {
                     <form onSubmit={handleSubmit} action="">
                         {error && <div className="error-message text-center text-white bg-red-500 m-4 font-semibold p-2">{error}</div>}
                         <div className="in m-4">
-                            <input type="date" value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} name="" id="" className='w-full bg-black text-white border-[1px] border-gray-600 p-2' min={today}/>
+                            <input type="date" value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} name="" id="" className='w-full border-[1px] border-gray-600 p-2' min={today}/>
                         </div>
                         <div className="in m-4">
-                            <input type="date" value={checkOutDate} onChange={(e) => setCheckOutDate(e.target.value)} name="" id="" className='w-full bg-black text-white border-[1px] border-gray-600 p-2'/>
+                            <input type="date" value={checkOutDate} onChange={(e) => setCheckOutDate(e.target.value)} name="" id="" className='w-full border-[1px] border-gray-600 p-2'/>
                         </div>
                         <div className="m-4">
-                            <select min="1" name="" value={rooms} onChange={(e) => setNumberOfRooms(e.target.value)} placeholder='Adult' id="" className='uppercase text-sm w-full bg-black text-white border-[1px] border-gray-600 p-2'>
+                            <select min="1" name="" value={rooms} onChange={(e) => setNumberOfRooms(e.target.value)} placeholder='Adult' id="" className='uppercase text-sm w-full border-[1px] border-gray-600 p-2'>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -171,7 +175,7 @@ function RoomDetails() {
                 </div>
             </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto mb-16">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto mb-16">
             {roomType.slice(currentIndex, currentIndex + 6).map((items, index) => (
                 <div key={index} className="item rounded m-4 bg-slate-100">
                     <img src={items.images[0].img} alt="" className='h-[13em] w-full object-cover' />
@@ -196,7 +200,7 @@ function RoomDetails() {
                     </div>
                 </div>
             ))}
-        </div>
+        </div> */}
         <Serve/>
         <Footer/>
     </>

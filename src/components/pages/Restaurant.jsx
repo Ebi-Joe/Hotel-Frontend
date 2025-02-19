@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../Header'
 import Footer from '../Footer'
 import { PiChefHat } from "react-icons/pi";
@@ -7,6 +7,10 @@ import { Link } from 'react-router-dom';
 import { GiHotMeal } from "react-icons/gi";
 
 function Restaurant() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
   return (
     <>
         <div className="restaurant">

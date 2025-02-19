@@ -19,6 +19,10 @@ function Testimonials() {
         setDate(currentDate);
     }, []);
 
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
     const reviewHandler = async (e) => {
         e.preventDefault();
         if (!name || !point || !description || !date || !rating) {

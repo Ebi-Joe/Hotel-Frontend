@@ -106,13 +106,13 @@ function rooms() {
                   <form onSubmit={availabilityHandler} action="">
                     {error && <div className="error-message text-red-500 font-semibold bg-red-100 m-4 p-2">{error}</div>}
                     <div className="in m-4">
-                      <input onChange={(e) => setStartDate(e.target.value)} type="date" placeholder='CheckIn Date' name="" id="" className='w-full bg-black text-white border-[1px] border-gray-600 p-2' min={today}/>
+                      <input onChange={(e) => setStartDate(e.target.value)} type="date" placeholder='CheckIn Date' name="" id="" className='w-full border-[1px] border-gray-600 p-2' min={today}/>
                     </div>
                     <div className="in m-4">
-                      <input onChange={(e) => setEndDate(e.target.value)} type="date" placeholder='CheckOut Date' name="" id="" className='w-full bg-black text-white border-[1px] border-gray-600 p-2'/>
+                      <input onChange={(e) => setEndDate(e.target.value)} type="date" placeholder='CheckOut Date' name="" id="" className='w-full border-[1px] border-gray-600 p-2'/>
                     </div>
                     <div className="m-4">
-                      <select onChange={(e) => setTotalRooms(e.target.value)} name="" placeholder='RoomType' id="totalRoom" className='w-full bg-black text-white border-[1px] border-gray-600 p-2'>
+                      <select onChange={(e) => setTotalRooms(e.target.value)} name="" placeholder='RoomType' id="totalRoom" className='w-full border-[1px] border-gray-600 p-2'>
                           <option value="">Rooms</option>
                           <option value="1">1</option>
                           <option value="2">2</option>
