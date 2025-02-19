@@ -55,11 +55,13 @@ function BookingPage() {
         const roomName = e.target.elements.roomName.value;
         const rooms = e.target.elements.rooms.value;
         const CheckInDate = e.target.elements.CheckInDate.value;
+        const CheckInTime = e.target.elements.CheckInTime.value;
         const CheckOutDate = e.target.elements.CheckOutDate.value;
+        const CheckOutTime = e.target.elements.CheckOutTime.value;
         const amount = e.target.elements.amount.value;
         const totalDays = e.target.elements.totalDays.value;
     
-        if (!firstName || !lastName || !phone || !email || !currency || !roomType || !roomName || !rooms || !CheckInDate || !CheckOutDate || !amount || !totalDays) {
+        if (!firstName || !lastName || !phone || !email || !currency || !roomType || !roomName || !rooms || !CheckInDate || !CheckInTime || !CheckOutDate || !CheckOutTime || !amount || !totalDays) {
             console.log(firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckOutDate, amount, totalDays);            
             setError("Please Fill In All Fields.");
             return;
@@ -75,7 +77,7 @@ function BookingPage() {
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckOutDate, amount, totalDays })
+                body: JSON.stringify({ firstName, lastName, phone, email, currency, roomType, roomName, rooms, CheckInDate, CheckInTime, CheckOutDate, CheckOutTime, amount, totalDays })
             });
     
             const data = await res.json();
@@ -146,7 +148,9 @@ function BookingPage() {
                                         <input type="hidden" name='rooms' value={items.rooms} />
                                         <input type="hidden" name='totalDays' value={items.days} />
                                         <input type="hidden" name='CheckInDate' value={items.checkInDate} />
+                                        <input type="hidden" name='CheckInDate' value={items.checkInTime} />
                                         <input type="hidden" name='CheckOutDate' value={items.checkOutDate} />
+                                        <input type="hidden" name='CheckOutDate' value={items.checkOutTime} />
                                     </div>  
                                 ))
                             )}
@@ -212,16 +216,22 @@ function BookingPage() {
                 <div className="policies border-[1px] my-2 p-3 lg:w-[50vw]">
                     <h1 className='text-3xl py-2 font-bold'>Policies:</h1>
                     <div className="py-2">
-                        <div className="flex">
-                            <div className="px-4">
-                                <h1 className='font-bold text-xl'>Check-In</h1>
-                                <h1>After 2:00 pm</h1>
-                            </div>
-                            <div className="px-4">
-                                <h1 className='font-bold text-xl'>Check-Out</h1>
-                                <h1>Before 12:00 pm</h1>
-                            </div>
-                        </div>
+                        {bookings.length === 0 ? (
+                            <p className='font-bold text-2xl text-red-500 uppercase text-center'>No bookings yet!!....</p>
+                            ) : (
+                                bookings.map((items, index) => (
+                                    <div className="flex">
+                                        <div className="px-4">
+                                            <h1 className='font-bold text-xl'>Check-In</h1>
+                                            <h1>{items.checkInTime}</h1>
+                                        </div>
+                                        <div className="px-4">
+                                            <h1 className='font-bold text-xl'>Check-Out</h1>
+                                            <h1>{items.checkOutTime}</h1>
+                                        </div>
+                                    </div>
+                                ))
+                        )}
                         <div className="p-4">
                             <div className="py-1">
                                 <h1 className='font-semibold'>Guarantee Policy</h1>

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Header from '../Header';
 
 function Availability() {
   const location = useLocation();
   const availableRoomTypes = location.state?.availableRoomTypes || [];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

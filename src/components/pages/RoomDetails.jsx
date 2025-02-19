@@ -14,7 +14,9 @@ function RoomDetails() {
     const roomItems = roomType.find((items) => items._id === showDetails)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [checkInDate, setCheckInDate] = useState('')
+    const [checkInTime, setCheckInTime] = useState('')
     const [checkOutDate, setCheckOutDate] = useState('')
+    const [checkOutTime, setCheckOutTime] = useState('')
     const [rooms, setNumberOfRooms] = useState(1);
     const [days, setDays] = useState()
     const [selectedImages, setSelectedImages] = useState(roomItems?.images?.[0].img)
@@ -64,13 +66,27 @@ function RoomDetails() {
         const totalPrice = prices + tax;
         setError('')
 
+        const formatTime = (time) => {
+            if (!time) return "";
+            let [hour, minute] = time.split(":");
+            hour = parseInt(hour, 10);
+            let period = hour >= 12 ? "PM" : "AM";
+            hour = hour % 12 || 12; // Convert 24-hour to 12-hour format
+            return `${hour}:${minute} ${period}`;
+        };
+        
+        const formattedCheckInTime = formatTime(checkInTime);
+        const formattedCheckOutTime = formatTime(checkOutTime);
+
         const bookingInfo = {
             roomType: roomItems._id,
             roomName: roomItems.name,
             price: roomItems.price,
             occupancy: roomItems.occupancy,
             checkInDate,
+            checkInTime: formattedCheckInTime,
             checkOutDate,
+            checkOutTime: formattedCheckOutTime,
             rooms,
             days: days,
             tax: tax,
@@ -156,10 +172,16 @@ function RoomDetails() {
                     <form onSubmit={handleSubmit} action="">
                         {error && <div className="error-message text-center text-white bg-red-500 m-4 font-semibold p-2">{error}</div>}
                         <div className="in m-4">
-                            <input type="date" value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} name="" id="" className='w-full border-[1px] border-gray-600 p-2' min={today}/>
+                            <input type="date" value={checkInDate} onChange={(e) => setCheckInDate(e.target.value)} name="" id="" className='w-full  border-[1px] border-gray-600 p-2' min={today}/>
+                        </div>
+                        <div className="in m-4">
+                            <input type="time" value={checkInTime} onChange={(e) => setCheckInTime(e.target.value)} name="" id="" className='w-full  border-[1px] border-gray-600 p-2' min={today}/>
                         </div>
                         <div className="in m-4">
                             <input type="date" value={checkOutDate} onChange={(e) => setCheckOutDate(e.target.value)} name="" id="" className='w-full border-[1px] border-gray-600 p-2'/>
+                        </div>
+                        <div className="in m-4">
+                            <input type="time" value={checkOutTime} onChange={(e) => setCheckOutTime(e.target.value)} name="" id="" className='w-full  border-[1px] border-gray-600 p-2' min={today}/>
                         </div>
                         <div className="m-4">
                             <select min="1" name="" value={rooms} onChange={(e) => setNumberOfRooms(e.target.value)} placeholder='Adult' id="" className='uppercase text-sm w-full border-[1px] border-gray-600 p-2'>
