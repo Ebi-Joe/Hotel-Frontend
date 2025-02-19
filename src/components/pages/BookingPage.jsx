@@ -148,9 +148,9 @@ function BookingPage() {
                                         <input type="hidden" name='rooms' value={items.rooms} />
                                         <input type="hidden" name='totalDays' value={items.days} />
                                         <input type="hidden" name='CheckInDate' value={items.checkInDate} />
-                                        <input type="hidden" name='CheckInDate' value={items.checkInTime} />
+                                        <input type="hidden" name='CheckInTime' value={items.checkInTime} />
                                         <input type="hidden" name='CheckOutDate' value={items.checkOutDate} />
-                                        <input type="hidden" name='CheckOutDate' value={items.checkOutTime} />
+                                        <input type="hidden" name='CheckOutTime' value={items.checkOutTime} />
                                     </div>  
                                 ))
                             )}
