@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 function Header() {
   const [openMenu,  setOpenMenu] = useState(false)
-  const { isAuthenticated, showHide, user, loading } = useContext(HotelContext)
+  const { isAuthenticated, user, loading } = useContext(HotelContext)
   const navigate = useNavigate()
 
   const sidebarVariants = {

@@ -43,9 +43,9 @@ function ThankYou() {
             <p><span className="font-medium">Transaction Reference:</span> {tx_ref}</p>
             <p><span className="font-medium">Transaction ID:</span> {transaction_id}</p>
             <p><span className="font-medium">Check-in Date:</span> {booking?.CheckInDate}</p>
-            <p><span className="font-medium">Check-in Date:</span> {booking?.CheckInTime}</p>
+            <p><span className="font-medium">Check-in Time:</span> {booking?.CheckInTime}</p>
             <p><span className="font-medium">Check-out Date:</span> {booking?.CheckOutDate}</p>
-            <p><span className="font-medium">Check-out Date:</span> {booking?.CheckOutTime}</p>
+            <p><span className="font-medium">Check-out Time:</span> {booking?.CheckOutTime}</p>
             <p><span className="font-medium">Total Days:</span> {booking?.totalDays}</p>
             <p><span className="font-medium">Rooms Booked:</span> {booking?.rooms}</p>
             <p><span className="font-medium">Total Amount:</span> ${booking?.amount}</p>

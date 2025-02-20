@@ -109,8 +109,10 @@ function UserDash() {
                   <div key={booking._id} className="border p-4 rounded-lg shadow-md bg-gray-100">
                     <h3 className='font-semibold text-lg'>{booking.roomName} ({booking.roomType})</h3>
                     <p><strong>Booking ID:</strong> {booking._id}</p>
-                    <p><strong>Check-In:</strong> {new Date(booking.CheckInDate).toDateString()}</p>
-                    <p><strong>Check-Out:</strong> {new Date(booking.CheckOutDate).toDateString()}</p>
+                    <p><strong>Check-In Date:</strong> {new Date(booking.CheckInDate).toDateString()}</p>
+                    <p><strong>Check-In Time:</strong> {booking.CheckInTime}</p>
+                    <p><strong>Check-Out Date:</strong> {new Date(booking.CheckOutDate).toDateString()}</p>
+                    <p><strong>Check-Out Time:</strong> {booking.CheckOutTime}</p>
                     <p><strong>Total Days:</strong> {booking.totalDays}</p>
                     <p><strong>Rooms:</strong> {booking.rooms}</p>
                     <p><strong>Amount Paid:</strong> {booking.amount} {booking.currency || 'NGN'}</p>
