@@ -60,7 +60,7 @@ function ThankYou() {
             <p><span className="font-medium">Check-out Time:</span> {booking?.CheckOutTime}</p>
             <p><span className="font-medium">Total Days:</span> {booking?.totalDays}</p>
             <p><span className="font-medium">Rooms Booked:</span> {booking?.rooms}</p>
-            <p><span className="font-medium">Total Amount:</span> ${booking?.amount}</p>
+            <p><span className="font-medium">Total Amount:</span> NGN{booking?.amount}</p>
           </div>
 
           <div className="md:flex">
