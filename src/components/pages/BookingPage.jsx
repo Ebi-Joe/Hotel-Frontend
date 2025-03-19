@@ -122,7 +122,7 @@ function BookingPage() {
                                 <input className='border-2 p-2 w-full outline-[#6cd234]' name='phone' type="number" placeholder='Phone Number *' required/>
                             </div>
                             <div className="m-1 my-4">
-                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='currency' type="text" placeholder='Currency *' required/>
+                                <input className='border-2 p-2 w-full outline-[#6cd234]' name='currency' type="hidden" value="NGN" placeholder='Currency *' required/>
                             </div>
                             <div className="m-1">
                                 <input className='border-2 p-2 w-full outline-[#6cd234]' name='email' type="text" placeholder='Email Address *' required/>
@@ -164,18 +164,18 @@ function BookingPage() {
                                 <div key={index} className="md:w-[40vw] lg:w-[30vw] h-fit border-[1px] p-4 my-2">
                                     <div className="">
                                         <h1 className='text-2xl py-2 font-semibold'>Your Booking List: 1 Item</h1>
-                                        <h1 className='text-lg font-medium'>Total USD {items.totalPrice}.00</h1>
+                                        <h1 className='text-lg font-medium'>Total NGN {items.totalPrice}.00</h1>
                                         <h1 className='py-1.5'>Including taxes and fees</h1>
                                     </div>
                                     <h1 className='hidden'>{items.roomType}</h1>
                                     <div className="border-[1.5px] border-[#737373] p-3 px-4 my-2">
                                         <div className="flex place-content-between text-[16px] font-medium py-1">
                                             <h1 className='border-b-[1.4px] border-[#171717]'>{items.roomName}</h1>
-                                            <h1>USD {items.price}.00</h1>
+                                            <h1>NGN {items.price}.00</h1>
                                         </div>
                                         <div className="text-[16px] font-semibold flex place-content-between">
                                             <h1>Best Available Rate</h1>
-                                            <h1>USD {items.prices}.00</h1>
+                                            <h1>NGN {items.prices}.00</h1>
                                         </div>  
                                         <div className="text-[16px]">
                                             <h1 className='text-[.9rem] py-1'><span className='font-bold text-blue-600 underline'>{items.days}</span> Night stay for <span className='font-bold underline text-blue-600' >{items.rooms}</span> Rooms</h1>
@@ -199,7 +199,7 @@ function BookingPage() {
                                     <div className="">
                                         <div className="flex text-xl font-bold place-content-between">
                                             <h1>Total</h1>
-                                            <h1>USD {items.totalPrice}.00</h1>
+                                            <h1>NGN {items.totalPrice}.00</h1>
                                         </div>
                                         <div className="">
                                             <h1>Including Taxes and Fees</h1>
