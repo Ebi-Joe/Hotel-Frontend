@@ -3,6 +3,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import HotelContext from '../../context/HotelContext';
 import { Link, Navigate, useSearchParams } from 'react-router-dom';
+import Loader from '../Loader';
 
 function ThankYou() {
   const { createBooking, booking, isAuthenticated } = useContext(HotelContext);
@@ -10,6 +11,7 @@ function ThankYou() {
   const tx_ref = searchParams.get("tx_ref");
   const transaction_id = searchParams.get("transaction_id");
   const [isProcessed, setIsProcessed] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   if (!isAuthenticated) {
     return <Navigate to='/login' />;
@@ -17,11 +19,21 @@ function ThankYou() {
 
   useEffect(() => {
     if (transaction_id && tx_ref && !isProcessed) {
-      createBooking(tx_ref, transaction_id);
+      createBooking(tx_ref, transaction_id).finally(() => setLoading(false));
       setIsProcessed(true);
       localStorage.setItem(`bookingProcessed_${tx_ref}`, 'true');
+    } else {
+      setLoading(false);
     }
   }, [transaction_id, tx_ref, createBooking, isProcessed]);
+
+  if (loading || !booking) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <>
